@@ -1,0 +1,18 @@
+package genspark.assignments.section5;
+
+import genspark.assignments.Assignment;
+import java.util.HashSet;
+
+public class SetContainsLetter implements Assignment {
+    public Object solution(HashSet<Integer> nums, int elm) {
+        if(nums.isEmpty()){
+            return "?";
+        } else {
+            if(nums.contains(elm)){
+                return elm;
+            } else {
+                return "?";
+            }
+        }
+    }
+}
