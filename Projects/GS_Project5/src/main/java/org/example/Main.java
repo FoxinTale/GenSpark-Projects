@@ -1,4 +1,4 @@
-package main;
+package org.example;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,7 +31,6 @@ public class Main {
             setupGame();
             firstRun = false;
         }
-
 
         String input;
 
@@ -100,7 +99,7 @@ public class Main {
 
 
     public static void endOfGame(Scanner sc){
-        String response = "";
+        String response;
         System.out.println("Would you like to play again?");
         response = sc.nextLine();
 
