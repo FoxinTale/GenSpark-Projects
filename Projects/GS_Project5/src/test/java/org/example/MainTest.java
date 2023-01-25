@@ -32,6 +32,49 @@ class MainTest {
         }
     }
 
+    @org.junit.jupiter.api.Test
+    void handleInput(){
+        //Empty spaces
+        assertEquals("That's an empty space. There are no words with spaces this can give you.", Main.handleInput(""));
+        assertEquals("That's an empty space. There are no words with spaces this can give you.", Main.handleInput("\t"));
+        assertEquals("That's an empty space. There are no words with spaces this can give you.", Main.handleInput("\n"));
+        assertEquals("That's an empty space. There are no words with spaces this can give you.", Main.handleInput(" "));
+        assertEquals("That's an empty space. There are no words with spaces this can give you.", Main.handleInput("           "));
+
+        // Numbers.
+        assertEquals("That's a number, not a letter.", Main.handleInput("-13"));
+        assertEquals("That's a number, not a letter.", Main.handleInput("-23556"));
+        assertEquals("That's a number, not a letter.", Main.handleInput("-1"));
+
+        assertEquals("That's a number, not a letter.", Main.handleInput("0"));
+
+        assertEquals("That's a number, not a letter.", Main.handleInput("45"));
+        assertEquals("That's a number, not a letter.", Main.handleInput("1"));
+        assertEquals("That's a number, not a letter.", Main.handleInput("2332"));
+
+
+        // Multiple characters. The most likely case is the user hits two keys right next to each other.
+        assertEquals("That has more than one character.", Main.handleInput("de"));
+        assertEquals("That has more than one character.", Main.handleInput("ew"));
+        assertEquals("That has more than one character.", Main.handleInput("cat"));
+        assertEquals("That has more than one character.", Main.handleInput("what"));
+        assertEquals("That has more than one character.", Main.handleInput("wq"));
+
+        // "Special" characters.
+        assertEquals("You're playing hangman, not trying to guess a password.", Main.handleInput("!"));
+        assertEquals("You're playing hangman, not trying to guess a password.", Main.handleInput("&"));
+        assertEquals("You're playing hangman, not trying to guess a password.", Main.handleInput("\\"));
+        assertEquals("You're playing hangman, not trying to guess a password.", Main.handleInput("?"));
+        assertEquals("You're playing hangman, not trying to guess a password.", Main.handleInput(","));
+
+        // And finally, the game as it should be.
+        assertEquals("", Main.handleInput("t"));
+        assertEquals("", Main.handleInput("h"));
+        assertEquals("", Main.handleInput("i"));
+        assertEquals("", Main.handleInput("n"));
+        assertEquals("", Main.handleInput("G"));
+    }
+
 
     @org.junit.jupiter.api.Test
     void printStage() {

@@ -24,7 +24,8 @@ public class Main {
     private static int guessCount = 0;
     private static boolean keepGoing = true;
     private static boolean firstRun = true; // This cannot be defined in main, as main is called again at some point, if the user re-does the game.
-
+    private static String specialChars = "~`!@#$%^&*()_-+=[]{}|\\:;\"'<,.>?/";
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         if(firstRun){
@@ -36,78 +37,87 @@ public class Main {
 
         while (guessCount < 11 && keepGoing) {
             input = sc.nextLine();
-            handleInputAndGame(input, sc);
+            System.out.println(gameStuff(input));
         }
 
         if(guessCount >= 10){
             System.out.println("The man has been hung.");
-            endOfGame(sc);
+            endOfGame();
         }
-        // To do: Try to unit test things.
+    }
+
+    public static String handleInput(String s){
+        if(s.isEmpty() || s.isBlank()){
+            return "That's an empty space. There are no words with spaces this can give you.";
+        }
+        try {
+            if (Integer.parseInt(s) >= 0 || Integer.parseInt(s) <= 0) {
+                return "That's a number, not a letter.";
+            }
+        } catch (NumberFormatException NFE) {
+            if(s.length() > 1){
+                return "That has more than one character.";
+            } else if(specialChars.contains(s)){
+                return "You're playing hangman, not trying to guess a password.";
+            }
+            else {
+                return "";
+            }
+        }
+        return "Something went wrong.";
     }
 
 
-    public static void handleInputAndGame(String s, Scanner sc) {
-        boolean error = false; // Reset as it's a new input.
-        char c = 0;
-        if(s.isEmpty() || s.isBlank()){
-            System.out.println("That's an empty space. There are no words with spaces this cna give you.");
-            error = true;
-        } else {
-            c = s.charAt(0);
-        }
-         // If the user inputs more than one character, it will ignore everything but the first one.
-        // This would get changed to true if an invalid input is done.
+    public static String gameStuff(String s){
+        String result = handleInput(s);
 
-        try {
-            if (Integer.parseInt(s) > 0) {
-                System.out.println("Uh..that's a number, not a letter. Try again.");
-                error = true;
-            }
-        } catch (NumberFormatException NFE) { // Yeah. This is how I wrote it. It's supposed to do this.
+        if(result.isEmpty()){
+            char c = s.charAt(0);
             if (guessedChars.contains(c) || wrongChars.contains(c)) {
-                System.out.println("You've already guessed that letter.");
-                error = true;
+                return "You've already guessed that letter.";
             }
-            if (word.contains(s) && !error) {
+            if (word.contains(s)) {
                 guessedChars.add(c);
                 rebuildArray(wordChars, charsToGuess, c);
                 printCharArray(charsToGuess);
 
                 if (checkWin(wordChars, charsToGuess)) { // If the word has been completed.
                     System.out.println("That's the word. Good job.");
-                    endOfGame(sc);
+                    endOfGame();
+                    return ""; // I do this instead of just returning the above string because during testing,
+                    // if the user guessed the word correctly, it wouldn't tell them they got it until the program finished running.
                 }
-
-            } else if (!error) { // If nothing else has gone wrong, it is an incorrect character.
-                System.out.println("Try again.");
+            } else { // If nothing else has gone wrong, it is an incorrect character.
                 wrongChars.add(c);
                 System.out.println(printStage(guessCount));
                 System.out.println(); // Spacer.
                 printCharArray(charsToGuess);
                 printWrongChars(wrongChars);
                 guessCount += 1;
+                return "Try again.";
             }
         }
+        return result;
     }
-
 
     public static void setupGame() {
         System.out.println("Welcome to  H A N G M A N");
         resetGame();
     }
 
-
-    public static void endOfGame(Scanner sc){
+    public static void endOfGame(){
         String response;
         System.out.println("Would you like to play again?");
+        Scanner sc = new Scanner (System.in);
         response = sc.nextLine();
 
         if (response.equalsIgnoreCase("y")) {
             keepGoing = true;
+            resetGame();
             main(null); // I have no idea why, but without this, it would not keep playing the game if you chose yes.
             // Hell, I didn't even know you could do this.
         } else {
+            System.out.println("Thanks for playing!");
             keepGoing = false;
         }
     }
