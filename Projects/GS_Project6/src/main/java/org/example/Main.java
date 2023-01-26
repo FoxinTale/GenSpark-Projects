@@ -1,18 +1,19 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
 This appears to be a text based humans versus goblins "game".
 
 -[x] Everything needs to be an object. Land, Humans, Goblins
--[ ] The toString of each object must be over-ridden to represent each object. (?)
+-[x] The toString of each object must be over-ridden to represent each object. (?)
 -[x] A grid of the game world must be created.
 -[x] UTF characters must be used to represent the player(s), goblins and land.
 -[x] The game is turn based moves (N/S/E/W)
 -[x] Once a human and goblin collide (are on the same square / grid space) combat initiates.
         (collision detection is implemented, combat in progress)
--[o] Combat uses math.random.
+-[x] Combat uses math.random.
 
 - Extras:
 -[ ]  Humans have an inventory system.
@@ -43,15 +44,12 @@ To do for minimum functionality:
  */
 public class Main {
     public static void main(String[] args) {
-
         boolean runGame = true;
         System.out.println("Welcome to a rudimentary, text based version of D & D.");
         System.out.println("An x represents an open space, a G represents a Goblin, and an O represents your character.");
         System.out.println("Type n, s, e, or w (case insensitive) to move around.");
         System.out.println();
         World.setupBoard();
-        World.placeGoblins();
-        World.printMainBoard();
 
         Scanner sc = new Scanner(System.in);
 
@@ -71,7 +69,6 @@ public class Main {
             } else {
                 System.out.println(result);
             }
-
             if(Game.player.getHitPoints() <= 0){
                 runGame = false;
             }

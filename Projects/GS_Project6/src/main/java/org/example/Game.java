@@ -3,15 +3,10 @@ package org.example;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
-    static Human player = new Human(10, 10, 12, 7, 7);
+    static Human player = new Human(10, 10, 24, 7, 7); // HP is 12 by default.
 
     public static void initiateCombat() {
         boolean continueCombat = true;
-        // To initiate combat, we first roll "initiative", and whoever is highest, goes first for the entire combat.
-        int goblinInitiative = rollTwenty();
-        int humanInitiative = rollTwenty();
-        int damage = 0;
-
         Goblin enemy = World.findGoblinAtPlayerPosition();
 
         // Sanity check. Should never happen, but y'know, handle it anyways.
@@ -19,6 +14,45 @@ public class Game {
             System.out.println("Combat failed due to there not being a goblin at this position.");
             return;
         }
+
+        int[] initiative = rollInitiative();
+
+        while (continueCombat) {
+            if (initiative[0] > initiative[1]) {
+                enemy.attack(player);
+                player.attack(enemy);
+            } else {
+                player.attack(enemy);
+                enemy.attack(player);
+            }
+            if (player.isDead() || enemy.isDead()) {
+                if (enemy.isDead()) {
+                    System.out.println("The goblin has been slain.");
+
+                    System.out.println(); // Separator.
+                    if (!World.isBoardCleared()) {
+                        World.removeGoblin(enemy);
+                        World.printMainBoard();
+                    } else {
+                        System.out.println("You have cleared all the goblins from the map. Good job, exterminator.");
+                        System.exit(0);
+                    }
+                }
+                if (player.isDead()) {
+                    System.out.println();
+                    System.out.println("You have been slain, and the game is now over.");
+                }
+                continueCombat = false;
+            }
+        }
+    }
+
+    public static int[] rollInitiative() {
+        // To initiate combat, we first roll "initiative", and whoever is highest, goes first for the entire combat.
+
+        int goblinInitiative = rollTwenty();
+        int humanInitiative = rollTwenty();
+
         /*
             Usually, a dexterity bonus would be applied here but that was cut for simplification purposes, so we'll just roll again.
             This is in a while instead of a single if due to there is a chance, even if it's a tiny chance that multiple rolls could be the same numbers.
@@ -28,69 +62,9 @@ public class Game {
             goblinInitiative = rollTwenty();
             humanInitiative = rollTwenty();
         }
-//        System.out.println(humanInitiative + "  ||  " + goblinInitiative);
-        while (continueCombat) {
-            if (goblinInitiative > humanInitiative) {
-                // Goblin goes first.
-                if (rollTwenty() < player.getArmourClass()) {
-                    /*
-                    D & D has this mechanic called "Armour Class" (AC). At its most basic level, this is determined by the type of armour the character is wearing.
-                    Bonuses, can of course be applied as well. How this works, is when an attack is made, a d20 is rolled. If the number is lower than the entity's AC,
-                    the attack fails. If it is equal to or greater than the AC, the attack lands and a damage roll is done which the amount is weapon-dependent.
-                     */
-                    System.out.println("The goblin attacked, but it did no damage.");
-                } else {
-                    // Goblin attacks.
-                    damage = rollFour(); // this is based off of a wooden club, which does 1d4 damage, hence the rollFour()
 
-                    if(damage == 1){
-                        System.out.println("The goblin attacked for one whole damage.");
-                    } else {
-                        System.out.println("The goblin attacked for " + damage + " damage.");
-                    }
-                    player.setHitPoints(player.getHitPoints() - damage);
-                    int playerHP = player.getHitPoints();
-                    if(playerHP > 0){
-                        System.out.println("You now have " + playerHP + " hit points.");
-                    } else {
-                        System.out.println("You now have 0 hit points.");
-                    }
-                }
-            } else {
-                // Human goes first.
-                if (rollTwenty() < enemy.getArmourClass()) {
-                    System.out.println("You attacked the goblin, but it did no damage.");
-                } else {
-                    // Player attacks.
-                    damage = rollSix(); // This is based off a Rapier, which does 1d6 damage.
-                    if(damage == 1){
-                        System.out.println("You attacked the goblin for one whole damage.");
-                    } else {
-                        System.out.println("You attacked for " + damage + " damage.");
-                    }
-                    enemy.setHitPoints(enemy.getHitPoints() - damage);
-                }
-            }
-            if (player.getHitPoints() <= 0 || enemy.getHitPoints() <= 0) {
-                if (enemy.getHitPoints() <= 0) {
-                    System.out.println("The goblin has been slain.");
-
-                    System.out.println();
-                //    World.removeGoblin(enemy.getX(), enemy.getY());
-                    World.removeGoblin(enemy);
-  //                  World.setBoardPosition(enemy.getX(), enemy.getY(), 'x');
-                    World.printMainBoard();
-                }
-
-                if(player.getHitPoints() <= 0){
-                    System.out.println();
-                    System.out.println("You have been slain, and the game is now over.");
-                }
-                continueCombat = false;
-            }
-        }
+        return new int[]{goblinInitiative, humanInitiative};
     }
-
 
     public static boolean validDirection(char c) {
         switch (c) {

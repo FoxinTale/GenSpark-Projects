@@ -5,12 +5,7 @@ import java.util.Arrays;
 
 public class World extends Game {
     public static char[][] mainBoard = new char[15][15];
-    public static Goblin[] goblins = new Goblin[3];
     public static ArrayList<Goblin> goblinList = new ArrayList<>();
-
-    public static void setBoardPosition(int x, int y, char c) {
-        mainBoard[x][y] = c;
-    }
 
     public static void setupBoard() {
         for (int i = 0; i < 15; i++) {
@@ -18,8 +13,10 @@ public class World extends Game {
                 mainBoard[i][j] = 'x';
             }
         }
-    }
 
+        placeGoblins();
+        printMainBoard();
+    }
 
     public static Goblin findGoblinAtPlayerPosition() {
         Goblin g;
@@ -31,16 +28,11 @@ public class World extends Game {
                 return goblinList.get(i);
             }
         }
-
-        /*
-        for (int i = 0; i < goblins.length; i++) {
-            g = goblins[i];
-            if (g.getX() == player.getX() && g.getY() == player.getY()) {
-                return goblins[i];
-            }
-        }
-         */
         return null;
+    }
+
+    public static boolean isBoardCleared(){
+        return goblinList.size() <= 1;
     }
 
     public static void placeGoblins() {
@@ -51,7 +43,6 @@ public class World extends Game {
         for (int i = 0; i < 3; i++) {
             if (x != 7 && y != 7) {
                 goblinList.add(new Goblin(8, 11, 7, x, y));
-                //               goblins[i] = new Goblin(8, 11, 7, x, y);
             } else {
                 i = -1;
             }
@@ -60,28 +51,15 @@ public class World extends Game {
         }
     }
 
-    public static void removeGoblin(Goblin g/*int x, int y */){
+    public static void removeGoblin(Goblin g){
         goblinList.remove(g);
-        /*
-        Goblin g;
-        for(int i =0; i < goblinList.size(); i++){
-            g = goblinList.get(i);
-
-            if (g.getX() == x && g.getY() ==y) {
-                goblinList.remove(i);
-            }
-        }
-
-         */
     }
 
     public static void setPositions() {
-     //   goblinList.
         playerGoblinCheck();
         mainBoard[player.getX()][player.getY()] = 'O';
 
         for (int i = 0; i < goblinList.size(); i++) {
-            //           mainBoard[goblins[i].getX()][goblins[i].getY()] = 'G';
             mainBoard[goblinList.get(i).getX()][goblinList.get(i).getY()] = 'G';
         }
     }

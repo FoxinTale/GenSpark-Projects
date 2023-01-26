@@ -15,6 +15,10 @@ public class Entity {
         this.y = y;
     }
 
+    public void takeDamage(int damage){
+        hitPoints = hitPoints - damage;
+    }
+
     public int getStrength(){
         return this.strength;
     }
@@ -55,6 +59,9 @@ public class Entity {
         this.y = y;
     }
 
+    public boolean isDead(){
+        return hitPoints <= 0;
+    }
 
     @Override
     public String toString() {
