@@ -15,15 +15,15 @@ public class Entity {
         this.y = y;
     }
 
-    public void takeDamage(int damage){
+    public void takeDamage(int damage) {
         hitPoints = hitPoints - damage;
     }
 
-    public int getStrength(){
+    public int getStrength() {
         return this.strength;
     }
 
-    public void setStrength(int str){
+    public void setStrength(int str) {
         this.strength = str;
     }
 
@@ -59,7 +59,7 @@ public class Entity {
         this.y = y;
     }
 
-    public boolean isDead(){
+    public boolean isDead() {
         return hitPoints <= 0;
     }
 

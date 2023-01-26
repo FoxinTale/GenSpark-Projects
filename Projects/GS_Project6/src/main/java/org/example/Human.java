@@ -7,19 +7,18 @@ public class Human extends Entity {
         super(str, ac, hp, x, y);
     }
 
-    public void attack(Goblin enemy){
-        // Human goes first.
+    public String attack(Goblin enemy) {
         if (Game.rollTwenty() < enemy.getArmourClass()) {
-            System.out.println("You attacked the goblin, but it did no damage.");
+            return "You attacked the goblin, but it did no damage.";
         } else {
-            // Player attacks.
             int damage = Game.rollSix(); // This is based off a Rapier, which does 1d6 damage.
-            if (damage == 1) {
-                System.out.println("You attacked the goblin for one whole damage.");
-            } else {
-                System.out.println("You attacked for " + damage + " damage.");
-            }
             enemy.takeDamage(damage);
+            if (damage == 1) {
+                return "You attacked the goblin for one whole damage.";
+            } else {
+                return "You attacked for " + damage + " damage.";
+            }
+
         }
     }
 

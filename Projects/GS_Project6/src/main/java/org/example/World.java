@@ -13,7 +13,6 @@ public class World extends Game {
                 mainBoard[i][j] = 'x';
             }
         }
-
         placeGoblins();
         printMainBoard();
     }
@@ -21,7 +20,7 @@ public class World extends Game {
     public static Goblin findGoblinAtPlayerPosition() {
         Goblin g;
 
-        for(int i =0; i < goblinList.size(); i++){
+        for (int i = 0; i < goblinList.size(); i++) {
             g = goblinList.get(i);
 
             if (g.getX() == player.getX() && g.getY() == player.getY()) {
@@ -31,7 +30,7 @@ public class World extends Game {
         return null;
     }
 
-    public static boolean isBoardCleared(){
+    public static boolean isBoardCleared() {
         return goblinList.size() <= 1;
     }
 
@@ -51,7 +50,7 @@ public class World extends Game {
         }
     }
 
-    public static void removeGoblin(Goblin g){
+    public static void removeGoblin(Goblin g) {
         goblinList.remove(g);
     }
 

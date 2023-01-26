@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /*
-This appears to be a text based humans versus goblins "game".
+This appears to be a text based humans versus goblins "game", and the word for word description is as follows:
 
 -[x] Everything needs to be an object. Land, Humans, Goblins
 -[x] The toString of each object must be over-ridden to represent each object. (?)
@@ -13,7 +13,7 @@ This appears to be a text based humans versus goblins "game".
 -[x] The game is turn based moves (N/S/E/W)
 -[x] Once a human and goblin collide (are on the same square / grid space) combat initiates.
         (collision detection is implemented, combat in progress)
--[x] Combat uses math.random.
+-[x] Combat uses math.random. [Well, sort of. It uses ThreadLocalRandom which is so much better]
 
 - Extras:
 -[ ]  Humans have an inventory system.
@@ -35,7 +35,7 @@ To do for minimum functionality:
     -[x] Human combat system implementation (It's pretty similar to goblin combat).
     -[x] Loop the combat system so that it occurs til one or the other dies.
 
-- [] Other
+- [] Other (Not essential, but adds to the game)
     -[] Goblins randomly move around the map every turn, make it look like they are roaming around. We're not doing "hunt down the player".
     -[] Handle goblin-goblin collision. (ideally prevent it).
     -[] Make sure only one goblin at a time can attack. Keep multiple ones away from the player.
@@ -53,11 +53,11 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        while(runGame){
+        while (runGame) {
             String result = Game.handleInput(sc.next());
-            if(result.length() == 1){
-                if(Game.playerMoves(result)){
-                    if(!World.playerGoblinCheck()){
+            if (result.length() == 1) {
+                if (Game.playerMoves(result)) {
+                    if (!World.playerGoblinCheck()) {
                         World.printMainBoard();
                     } else {
                         System.out.println("Combat initiate!");
@@ -69,7 +69,7 @@ public class Main {
             } else {
                 System.out.println(result);
             }
-            if(Game.player.getHitPoints() <= 0){
+            if (Game.player.isDead()) {
                 runGame = false;
             }
         }

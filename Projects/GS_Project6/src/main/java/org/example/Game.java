@@ -19,11 +19,11 @@ public class Game {
 
         while (continueCombat) {
             if (initiative[0] > initiative[1]) {
-                enemy.attack(player);
-                player.attack(enemy);
+                System.out.println(enemy.attack(player));
+                System.out.println(player.attack(enemy));
             } else {
-                player.attack(enemy);
-                enemy.attack(player);
+                System.out.println(player.attack(enemy));
+                System.out.println(enemy.attack(player));
             }
             if (player.isDead() || enemy.isDead()) {
                 if (enemy.isDead()) {
@@ -54,7 +54,7 @@ public class Game {
         int humanInitiative = rollTwenty();
 
         /*
-            Usually, a dexterity bonus would be applied here but that was cut for simplification purposes, so we'll just roll again.
+            Usually, a dexterity bonus would be applied here but that was cut for simplification purposes, so we'll just roll again til they aren't equal.
             This is in a while instead of a single if due to there is a chance, even if it's a tiny chance that multiple rolls could be the same numbers.
             So we just keep going until they are not the same.
          */
@@ -119,10 +119,7 @@ public class Game {
     }
 
     public static boolean moveCheck(int newPos) {
-        if (newPos < 15 && newPos > -1) {
-            return true;
-        }
-        return false;
+        return newPos < 15 && newPos > -1;
     }
 
     public static String handleInput(String s) {
