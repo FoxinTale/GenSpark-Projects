@@ -1,6 +1,4 @@
-package org.example;
-
-import java.util.concurrent.ThreadLocalRandom;
+package org.GSProject6;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -54,6 +52,17 @@ class GameTest {
         assertEquals("w", Game.handleInput("w"));
         assertEquals("W", Game.handleInput("W"));
 
+    }
+
+    @org.junit.jupiter.api.Test
+    void initiativeResult(){
+        assertEquals("Goblin rolled higher, therefore they attack first.", Game.initiativeResult(new int[]{14, 5}));
+        assertEquals("Goblin rolled higher, therefore they attack first.", Game.initiativeResult(new int[]{20, 3}));
+        assertEquals("Goblin rolled higher, therefore they attack first.", Game.initiativeResult(new int[]{17, 8}));
+
+        assertEquals("You rolled higher initiative, therefore you go first.", Game.initiativeResult(new int[]{14, 18}));
+        assertEquals("You rolled higher initiative, therefore you go first.", Game.initiativeResult(new int[]{4, 20}));
+        assertEquals("You rolled higher initiative, therefore you go first.", Game.initiativeResult(new int[]{1, 7}));
     }
 
     @org.junit.jupiter.api.Test

@@ -1,4 +1,4 @@
-package org.example;
+package org.GSProject6;
 
 public class Entity {
     private int strength;

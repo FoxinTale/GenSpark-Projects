@@ -1,11 +1,11 @@
-package org.example;
+package org.GSProject6;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class World extends Game {
-    public static char[][] mainBoard = new char[15][15];
-    public static ArrayList<Goblin> goblinList = new ArrayList<>();
+    private static char[][] mainBoard = new char[15][15];
+    private static ArrayList<Goblin> goblinList = new ArrayList<>();
 
     public static void setupBoard() {
         for (int i = 0; i < 15; i++) {
@@ -38,8 +38,7 @@ public class World extends Game {
         int x = Game.rollFifteen();
         int y = Game.rollFifteen();
 
-
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < Properties.goblinCount; i++) {
             if (x != 7 && y != 7) {
                 goblinList.add(new Goblin(8, 11, 7, x, y));
             } else {
@@ -50,6 +49,10 @@ public class World extends Game {
         }
     }
 
+    public static boolean goblinCollisionCheck(int x, int y){
+        return mainBoard[x][y] == 'G';
+    }
+
     public static void removeGoblin(Goblin g) {
         goblinList.remove(g);
     }
@@ -58,8 +61,8 @@ public class World extends Game {
         playerGoblinCheck();
         mainBoard[player.getX()][player.getY()] = 'O';
 
-        for (int i = 0; i < goblinList.size(); i++) {
-            mainBoard[goblinList.get(i).getX()][goblinList.get(i).getY()] = 'G';
+        for (Goblin goblin : goblinList) {
+            mainBoard[goblin.getX()][goblin.getY()] = 'G';
         }
     }
 
@@ -78,7 +81,7 @@ public class World extends Game {
         }
     }
 
-    @Override
+    @Override // I can't exactly return the world as it is a 2d array. Look at the function above.
     public String toString() {
         return "The entire world itself!";
     }

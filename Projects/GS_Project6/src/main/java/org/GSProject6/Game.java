@@ -1,9 +1,9 @@
-package org.example;
+package org.GSProject6;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
-    static Human player = new Human(10, 10, 24, 7, 7); // HP is 12 by default.
+    static Human player = new Human(10, 10, Properties.playerHealth, 7, 7);
 
     public static void initiateCombat() {
         boolean continueCombat = true;
@@ -16,6 +16,7 @@ public class Game {
         }
 
         int[] initiative = rollInitiative();
+        System.out.println(initiativeResult(initiative));
 
         while (continueCombat) {
             if (initiative[0] > initiative[1]) {
@@ -35,7 +36,6 @@ public class Game {
                         World.printMainBoard();
                     } else {
                         System.out.println("You have cleared all the goblins from the map. Good job, exterminator.");
-                        System.exit(0);
                     }
                 }
                 if (player.isDead()) {
@@ -44,6 +44,14 @@ public class Game {
                 }
                 continueCombat = false;
             }
+        }
+    }
+
+    public static String initiativeResult(int[] initiative){
+        if(initiative[0] > initiative[1]){
+            return "Goblin rolled higher, therefore they attack first.";
+        } else {
+            return "You rolled higher initiative, therefore you go first.";
         }
     }
 
@@ -81,6 +89,8 @@ public class Game {
                 return false;
         }
     }
+
+
 
     public static boolean playerMoves(String s) {
         int playerX = player.getX();

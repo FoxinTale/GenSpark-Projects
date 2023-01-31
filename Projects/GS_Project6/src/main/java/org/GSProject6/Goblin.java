@@ -1,4 +1,4 @@
-package org.example;
+package org.GSProject6;
 
 public class Goblin extends Entity {
 // Stats from: https://www.dndbeyond.com/monsters/16907-goblin

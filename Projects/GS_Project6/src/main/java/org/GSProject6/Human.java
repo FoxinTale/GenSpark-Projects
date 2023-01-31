@@ -1,4 +1,4 @@
-package org.example;
+package org.GSProject6;
 
 public class Human extends Entity {
     // stats from: https://roll20.net/compendium/dnd5e/Commoner#content
@@ -9,6 +9,7 @@ public class Human extends Entity {
 
     public String attack(Goblin enemy) {
         if (Game.rollTwenty() < enemy.getArmourClass()) {
+            // See "Goblin" for an explanation of Armour Class and what's going on here.
             return "You attacked the goblin, but it did no damage.";
         } else {
             int damage = Game.rollSix(); // This is based off a Rapier, which does 1d6 damage.
@@ -18,7 +19,6 @@ public class Human extends Entity {
             } else {
                 return "You attacked for " + damage + " damage.";
             }
-
         }
     }
 
