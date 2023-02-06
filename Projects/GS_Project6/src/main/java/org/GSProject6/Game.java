@@ -47,8 +47,8 @@ public class Game {
         }
     }
 
-    public static String initiativeResult(int[] initiative){
-        if(initiative[0] > initiative[1]){
+    public static String initiativeResult(int[] initiative) {
+        if (initiative[0] > initiative[1]) {
             return "Goblin rolled higher, therefore they attack first.";
         } else {
             return "You rolled higher initiative, therefore you go first.";
@@ -70,7 +70,6 @@ public class Game {
             goblinInitiative = rollTwenty();
             humanInitiative = rollTwenty();
         }
-
         return new int[]{goblinInitiative, humanInitiative};
     }
 
@@ -90,42 +89,41 @@ public class Game {
         }
     }
 
+    // Re-wrote this to allow generic entity movement, so I can also move goblins with this method.
+    public static boolean doMovement(String s, Entity e) {
+        int entityX = e.getX();
+        int entityY = e.getY();
 
-
-    public static boolean playerMoves(String s) {
-        int playerX = player.getX();
-        int playerY = player.getY();
-        World.resetCharacter(playerX, playerY);
+        World.resetCharacter(entityX, entityY);
 
         switch (s) {
             case "n":
-                if (moveCheck(playerX - 1)) {
-                    player.setX(playerX - 1);
+                if (moveCheck(entityX - 1)) {
+                    e.setX(entityX - 1);
                     return true;
                 }
                 return false;
             case "e":
-                if (moveCheck(playerY + 1)) {
-                    player.setY(playerY + 1);
+                if (moveCheck(entityY + 1)) {
+                    e.setY(entityY + 1);
                     return true;
                 }
                 return false;
             case "s":
-                if (moveCheck(playerX + 1)) {
-                    player.setX(playerX + 1);
+                if (moveCheck(entityX + 1)) {
+                    e.setX(entityX + 1);
                     return true;
                 }
                 return false;
             case "w":
-                if (moveCheck(playerY - 1)) {
-                    player.setY(playerY - 1);
+                if (moveCheck(entityY - 1)) {
+                    e.setY(entityY - 1);
                     return true;
                 }
                 return false;
             default:
                 return false;
         }
-
     }
 
     public static boolean moveCheck(int newPos) {

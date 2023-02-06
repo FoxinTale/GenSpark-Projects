@@ -1,10 +1,11 @@
 package org.GSProject6;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
 This appears to be a text based humans versus goblins "game", and the word for word description is as follows:
-Key: [x] = complete | [~] = cut features | [-] = in progress.
+Key: [x] = complete || [~] = not implemented or cut || [-] = in progress.
 -[x] Everything needs to be an object. Land, Humans, Goblins
 -[x] The toString of each object must be over-ridden to represent each object. (?)
 -[x] A grid of the game world must be created.
@@ -19,7 +20,7 @@ Key: [x] = complete | [~] = cut features | [-] = in progress.
 -[~]  Goblins have drops.
 -[ ]  Stats can be modified by equipment.
 -[~]  "Map gen random treasure chest after each round of combat".
--[ ]  Goblins pursue player.
+-[~]  Goblins pursue player.
 
 - And of course, unit testing is required.
  */
@@ -37,18 +38,22 @@ To do for minimum functionality:
     -[x] Loop the combat system so that it occurs til one or the other dies.
 
 - [] Other (Not essential, but adds to the game)
-    -[] Goblins randomly move around the map every turn, make it look like they are roaming around. We're not doing "hunt down the player".
+    -[-] Goblins randomly move around the map every turn, make it look like they are roaming around. We're not doing "hunt down the player",
+            As roaming goblins seems enough of a challenge to me.
     -[o] Handle goblin-goblin collision. (ideally prevent it).
     -[] Make sure only one goblin at a time can attack. Keep multiple ones away from the player.
 
 
-"Map gen random treasure chest after each round of combat". and "Goblins have drops."
+"Map gen random treasure chest after each round of combat" and "Goblins have drops."
     I decided not to do these because that just is not how D&D works, which is how I built this to function like.
     You don't get rewarded to the extreme for minor combat, only major boss encounters. And these are goblins, not a boss dragon at the end of its cave.
     So, the best reward you're getting out of this is experience points (XP) and any minor loot they may have on them...which since they're low level enemies, isn't much.
 
  */
 public class Main {
+
+
+
     public static void main(String[] args) {
         boolean runGame = true;
         System.out.println("Welcome to a rudimentary, text based version of D & D.");
@@ -62,8 +67,9 @@ public class Main {
         while (runGame) {
             String result = Game.handleInput(sc.next());
             if (result.length() == 1) {
-                if (Game.playerMoves(result)) {
+                if (Game.doMovement(result, Game.player)) {
                     if (!World.playerGoblinCheck()) {
+                        World.moveGoblins();
                         World.printMainBoard();
                     } else {
                         System.out.println("Combat initiate!");
@@ -76,6 +82,7 @@ public class Main {
                 System.out.println(result);
             }
             if (Game.player.isDead() || World.isBoardCleared()) {
+                System.out.println("The game is now over.");
                 runGame = false;
             }
         }

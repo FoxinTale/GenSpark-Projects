@@ -51,7 +51,6 @@ class GameTest {
         assertEquals("S", Game.handleInput("S"));
         assertEquals("w", Game.handleInput("w"));
         assertEquals("W", Game.handleInput("W"));
-
     }
 
     @org.junit.jupiter.api.Test
@@ -64,6 +63,7 @@ class GameTest {
         assertEquals("You rolled higher initiative, therefore you go first.", Game.initiativeResult(new int[]{4, 20}));
         assertEquals("You rolled higher initiative, therefore you go first.", Game.initiativeResult(new int[]{1, 7}));
     }
+
 
     @org.junit.jupiter.api.Test
     void moveCheck(){
@@ -79,6 +79,19 @@ class GameTest {
         assertFalse(Game.moveCheck(16));
         assertFalse(Game.moveCheck(245));
         assertFalse(Game.moveCheck(23456));
+    }
+
+    // Verifying that the values are between 1 and 20 (inclusive) for initiative.
+    @org.junit.jupiter.api.Test
+    void rollInitiative(){
+        int[] initiative;
+
+        for(int i = 0; i < 10; i++){
+            initiative = Game.rollInitiative();
+
+            assertTrue(initiative[0] >= 1 && initiative[0] <= 20);
+            assertTrue(initiative[1] >= 1 && initiative[1] <= 20);
+        }
     }
 
     // While this function is in fact part of the previous function, "handleInput", but it doesn't hurt to test this on its own.
@@ -112,43 +125,47 @@ class GameTest {
     // Checking that randomness, is in fact random and will fall within the range we need.
     @org.junit.jupiter.api.Test
     void rollFifteen() {
-        int num = 0;
+        int num;
         for (int i = 0; i < 120; i++) {
             num = Game.rollFifteen();
             assertTrue(num >= 0 && num <= 15);
         }
     }
 
+
     @org.junit.jupiter.api.Test
     void rollFour() {
-        int num = 0;
+        int num;
         for (int i = 0; i < 120; i++) {
             num = Game.rollFour();
             assertTrue(num >= 1 && num <= 4);
         }
     }
 
+
     @org.junit.jupiter.api.Test
     void rollTwenty() {
-        int num = 0;
+        int num;
         for (int i = 0; i < 120; i++) {
             num = Game.rollTwenty();
             assertTrue(num >= 1 && num <= 20);
         }
     }
 
+
     @org.junit.jupiter.api.Test
     void rollSix() {
-        int num = 0;
+        int num;
         for (int i = 0; i < 120; i++) {
             num = Game.rollSix();
             assertTrue(num >= 1 && num <= 6);
         }
     }
 
+
     @org.junit.jupiter.api.Test
     void rollEight() {
-        int num = 0;
+        int num;
         for (int i = 0; i < 120; i++) {
             num = Game.rollEight();
             assertTrue(num >= 1 && num <= 8);
