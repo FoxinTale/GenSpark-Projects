@@ -16,5 +16,11 @@ Projects and assignments related to GenSpark's Java training course.
 ### Project 5
 	A text based hangman game. With unit tests and exception handling.
 	
-## Project 6
+### Project 6
 	This is a text based game called "Humans versus Goblins", and the way I made it was a simplified version of Dungeons and Dragons.
+	
+### Project 7.
+	Adding on to project 5, hangman. Making it more functional via adding file reading and writing (game art, player name and high score), and expection handling.
+	
+### Project 8.
+	Adding on to project 6, "Humans versus Goblins". Adding a GUI to the whole thing to make it more user friendly.
