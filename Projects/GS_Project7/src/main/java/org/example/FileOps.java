@@ -6,14 +6,15 @@ import java.io.IOException;
 import java.nio.file.Files;
 public class FileOps {
 
-    private static File gameFile;
+
+    private static final String commonPath = System.getProperty("user.dir") + File.separator + "res" + File.separator;
+    private static final File gameFile = new File(commonPath + "game.ini");
 
     public static String[] readArtFile() {
-        File artFile = new File("res\\art.txt");
+        File artFile = new File(commonPath + "art.txt");
         try {
             String artData = new String(Files.readAllBytes(artFile.toPath()));
-            String[] art = artData.split("=====");
-            return art;
+            return artData.split("=====");
 
         } catch (IOException IOE) {
             System.out.println("ERROR: Art data file not found.");
@@ -24,16 +25,15 @@ public class FileOps {
 
     public static void writeDataFile(){
         try{
-            FileWriter dataWriter = new FileWriter(gameFile.getName());
+            FileWriter dataWriter = new FileWriter(gameFile);
 
             dataWriter.write("# Game Data for Hangman;\n");
             dataWriter.write("sPlayerName=" + Game.getPlayerName() + ";\n"); // s for String.
-            dataWriter.write("iHighScore=" + Game.getGuessCount() + ";\n"); // i for Integer
+            dataWriter.write("iHighScore=" + Game.getCurrentScore() + ";\n"); // i for Integer
             dataWriter.close();
         } catch (IOException IOE){
 
         }
-
     }
 
     public static void readDataFile(){
@@ -41,23 +41,19 @@ public class FileOps {
             try{
                 String gameData = new String(Files.readAllBytes(gameFile.toPath()));
                 String[] data = gameData.split(";");
-                System.out.println(data[1]);
-                System.out.println(data[2]);
+                Game.setPlayerName(lineSplit(data[1]));
+                Game.setHighScore(Integer.parseInt(lineSplit(data[2])));
             } catch (IOException IOE){
-                System.out.println("AIEEEEE");
+                System.out.println("Generic IO Exception.");
             }
         } else {
-            System.out.println("Data file does not exist.");
+            System.out.println("Data file does not exist. Will create it at the end of game.");
         }
     }
 
-    public String lineSplit(String line){
+    public static String lineSplit(String line){
         String[] splits = line.split("=");
         return splits[1];
-    }
-
-    public static void setGameFile(File gameFile) {
-        FileOps.gameFile = gameFile;
     }
 
     public static File getGameFile() {

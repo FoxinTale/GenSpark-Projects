@@ -81,16 +81,16 @@ class GameTest {
         Game.setGameState(FileOps.readArtFile()); // We need to read the file to have the data.
         assertEquals("", Game.printStage(-1));
         assertEquals("_ ___", Game.printStage(0));
-        assertEquals(" |\n" + " |\n" + " |\n" + " |\n" + " |\n" + " |\n" + "_|___", Game.printStage(1));
-        assertEquals(" ___________\n" + " |\n" + " |\n" + " |\n" + " |\n" + " |\n" + " |\n" + "_|___", Game.printStage(2));
-        assertEquals(" ___________\n" + " |/\n" + " |\n" + " |\n" + " |\n" + " |\n" + " |\n" + "_|___", Game.printStage(3));
-        assertEquals(" ___________\n" + " |/      |\n" + " |\n" + " |\n" + " |\n" + " |\n" + " |\n" + "_|___", Game.printStage(4));
-        assertEquals(" ___________\n" + " |/      |\n" + " |      (_)\n" + " |\n" + " |\n" + " |\n" + " |\n" + "_|___\n", Game.printStage(5));
-        assertEquals(" ___________\n" + " |/      |\n" + " |      (_)\n" + " |       |\n" + " |       |\n" + " |\n" + " |\n" + "_|___", Game.printStage(6));
-        assertEquals(" ___________\n" + " |/      |\n" + " |      (_)\n" + " |       |\n" + " |       |\n" + " |      /\n" + " |\n" + "_|___", Game.printStage(7));
-        assertEquals(" ___________\n" + " |/      |\n" + " |      (_)\n" + " |       |\n" + " |       |\n" + " |      / \\\n" + " |\n" + "_|___", Game.printStage(8));
-        assertEquals(" ___________\n" + " |/      |\n" + " |      (_)\n" + " |      \\|\n" + " |       |\n" + " |      / \\\n" + " |\n" + "_|___", Game.printStage(9));
-        assertEquals(" ___________\n" + " |/      |\n" + " |      (_)\n" + " |      \\|/\n" + " |       |\n" + " |      / \\\n" + " |\n" + "_|___", Game.printStage(10));
+        assertEquals("\n" + " |\n" + " |\n" + " |\n" + " |\n" + " |\n" + " |\n" + "_|___", Game.printStage(1));
+        assertEquals("\n" +" ___________\n" + " |\n" + " |\n" + " |\n" + " |\n" + " |\n" + " |\n" + "_|___", Game.printStage(2));
+        assertEquals("\n" +" ___________\n" + " |/\n" + " |\n" + " |\n" + " |\n" + " |\n" + " |\n" + "_|___", Game.printStage(3));
+        assertEquals("\n" +" ___________\n" + " |/      |\n" + " |\n" + " |\n" + " |\n" + " |\n" + " |\n" + "_|___", Game.printStage(4));
+        assertEquals("\n" +" ___________\n" + " |/      |\n" + " |      (_)\n" + " |\n" + " |\n" + " |\n" + " |\n" + "_|___", Game.printStage(5));
+        assertEquals("\n" +" ___________\n" + " |/      |\n" + " |      (_)\n" + " |       |\n" + " |       |\n" + " |\n" + " |\n" + "_|___", Game.printStage(6));
+        assertEquals("\n" +" ___________\n" + " |/      |\n" + " |      (_)\n" + " |       |\n" + " |       |\n" + " |      /\n" + " |\n" + "_|___", Game.printStage(7));
+        assertEquals("\n" +" ___________\n" + " |/      |\n" + " |      (_)\n" + " |       |\n" + " |       |\n" + " |      / \\\n" + " |\n" + "_|___", Game.printStage(8));
+        assertEquals("\n" +" ___________\n" + " |/      |\n" + " |      (_)\n" + " |      \\|\n" + " |       |\n" + " |      / \\\n" + " |\n" + "_|___", Game.printStage(9));
+        assertEquals("\n" +" ___________\n" + " |/      |\n" + " |      (_)\n" + " |      \\|/\n" + " |       |\n" + " |      / \\\n" + " |\n" + "_|___", Game.printStage(10));
         assertEquals("", Game.printStage(11));
         assertEquals("", Game.printStage(20));
     }

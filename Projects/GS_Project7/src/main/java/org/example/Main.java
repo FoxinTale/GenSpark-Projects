@@ -1,10 +1,8 @@
 package org.example;
 
+
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     /*
@@ -16,19 +14,20 @@ public class Main {
 
     ------------------
     Additions for project 7:
-    [ ] - No loops except for the main game loop, which should be a while loop. Other loops should be done through map, filter and reduce.
+    [!] - No loops except for the main game loop, which should be a while loop. Other loops should be done through map, filter and reduce.
     [x] - The art should be read through a file, which connotates the state of the game.
     [x] - The user should be able to enter their name.
-    [-] - The name and high score is recorded to a file at the end of each game.
-    [ ] - The game tells the user if they have the high score or not.
-    [ ] - No exceptions. Everything must be caught.
+    [x] - The name and high score is recorded to a file at the end of each game.
+    [x] - The game tells the user if they have the high score or not.
+    [x] - No exceptions. Everything must be caught.
+
+    I would have handled this to do multiple player / names, though I grew discouraged and started to burn out trying  and failing to convert loops over to streams.
+    Maybe in the future I'll go back and make / add support for multiple users. But for now, it's staying as one.
      */
 
     private static boolean firstRun = true; // This cannot be defined within main, as main is called again at some point, if the user re-does the game.
 
     public static void main(String[] args) {
-
-        /*
         Scanner sc = new Scanner(System.in);
         if(firstRun){
             System.out.println("Input a username.");
@@ -49,6 +48,5 @@ public class Main {
             System.out.println("The man has been hung.");
             Game.endOfGame();
         }
-         */
     }
 }

@@ -1,5 +1,6 @@
 package org.example;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -16,6 +17,7 @@ public class Game {
     private static String[] gameState;
     private static int guessCount = 0;
     static boolean keepGoing = true;
+    private static int currentScore = 0;
     private static int highScore;
     private static String playerName;
 
@@ -51,6 +53,7 @@ public class Game {
                 return "You've already guessed that letter.";
             }
             if (word.contains(s)) {
+                currentScore += 10;
                 guessedChars.add(c);
                 rebuildArray(wordChars, charsToGuess, c);
                 printCharArray(charsToGuess);
@@ -62,6 +65,7 @@ public class Game {
                     // if the user guessed the word correctly, it wouldn't tell them they got it until the program finished running.
                 }
             } else { // If nothing else has gone wrong, it is an incorrect character.
+                currentScore = 0;
                 wrongChars.add(c);
                 System.out.println(printStage(guessCount));
                 System.out.println(); // Spacer.
@@ -75,12 +79,19 @@ public class Game {
     }
 
     public static void setupGame() {
-        System.out.println("Welcome to  H A N G M A N ," + playerName + ".");
+        System.out.println("Welcome to H A N G M A N, " + playerName + ".");
+        FileOps.readDataFile();
         resetGame();
     }
 
     public static void endOfGame(){
         String response;
+        if(checkHighScore()){
+            System.out.println("You do not have the high score of " + highScore + " points. Even though scoring hangman makes little sense.");
+        } else {
+            System.out.println("You have the high score of " + currentScore + " points. Even though scoring hangman makes little sense.");
+            highScore = currentScore;
+        }
         System.out.println("Would you like to play again?");
         Scanner sc = new Scanner (System.in);
         response = sc.nextLine();
@@ -91,11 +102,11 @@ public class Game {
             Main.main(null); // I have no idea why, but without this, it would not keep playing the game if you chose yes.
             // Hell, I didn't even know you could do this.
         } else {
+            FileOps.writeDataFile();
             System.out.println("Thanks for playing!");
             keepGoing = false;
         }
     }
-
 
     public static String generateWord() {
         // A super generic word list.
@@ -104,7 +115,6 @@ public class Game {
 
         return words[num];
     }
-
 
     public static void resetGame() {
         guessCount = 0;
@@ -118,10 +128,21 @@ public class Game {
         wrongChars = new ArrayList<>();
 
         Arrays.fill(charsToGuess, '_'); // Fill with underscores.
+
         printCharArray(charsToGuess);
     }
 
+    /*
+    Takes two char arrays, A and B, and a single char. A is the actual word to guess, B is the guesses and blank spots.
 
+    The first loop looks for where the given char is at within A, and if the item at that position is the given char,
+    it adds the position to an arraylist due to the possibility of there being multiple of it.
+
+     The second loop uses the previously found positions to set the index of the guessed word array equal to the character.
+
+     I tried to turn these into streams. Everything went to hell and broke.  The game kept resetting, or it gave you a win if
+     you guessed only one letter correct
+     */
     public static void rebuildArray(char[] word, char[] guess, char c) {
         ArrayList<Integer> positions = new ArrayList<>();
 
@@ -136,15 +157,18 @@ public class Game {
         }
     }
 
-
     public static boolean checkWin(char[] word, char[] guess) {
         return Arrays.equals(word, guess);
+    }
+
+    public static boolean checkHighScore(){
+
+        return currentScore < highScore;
     }
 
     public static void printWrongChars(ArrayList<Character> chars) {
         System.out.println("Missed letters: " + Arrays.toString(chars.toArray()).replace(",", "").replace("[", "").replace("]", ""));
     }
-
 
     public static void printCharArray(char[] arr) {
         System.out.println(Arrays.toString(arr).replace(",", "").replace("[", "").replace("]", ""));
@@ -166,9 +190,17 @@ public class Game {
         return guessCount;
     }
 
+    public static int getCurrentScore() {
+        return currentScore;
+    }
+
+    public static void setHighScore(int highScore) {
+        Game.highScore = highScore;
+    }
+
     public static String printStage(int tries) {
         if(tries >= 0 && tries <= 10){
-            return gameState[tries].stripTrailing();
+            return gameState[tries].replaceAll("\r\n?", "\n").stripTrailing();
         }
         return "";
     }
