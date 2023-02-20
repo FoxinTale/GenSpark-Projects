@@ -17,6 +17,7 @@ public class Goblin extends Entity {
             return "The goblin attacked, but it did no damage.";
         } else {
             int damage = Game.rollFour(); // this is based off of a wooden club, which does 1d4 damage, hence the rollFour()
+            player.takeDamage(damage);
 
             if (damage == 1) {
                 return "The goblin attacked for one whole damage.";

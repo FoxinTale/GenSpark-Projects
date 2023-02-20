@@ -1,5 +1,7 @@
 package org.GSProject6.GUI;
 
+import org.GSProject6.Game;
+import org.GSProject6.Properties;
 import org.GSProject6.World;
 
 import javax.swing.*;
@@ -8,11 +10,17 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class GUI {
-    static JTextArea consoleOutput = new JTextArea();
+    public static JTextArea consoleOutput = new JTextArea();
     static JScrollPane scroll = new JScrollPane(consoleOutput);
     public static JLabel[][] boxes;
+    public static JProgressBar playerHP = new JProgressBar();
 
-    static JProgressBar playerHP = new JProgressBar();
+    public static JLabel playerHPText = new JLabel();
+
+    private static final JButton up = new JButton("^");
+    private static final JButton right = new JButton(">");
+    private static final JButton down = new JButton("v");
+    private static final JButton left = new JButton("<");
 
     public static void launchGUI() {
         JFrame.setDefaultLookAndFeelDecorated(true);
@@ -22,11 +30,6 @@ public class GUI {
         frame.setTitle("Humans Versus Goblins - GUI Edition");
 
         JLabel playerHPLabel = new JLabel("Player HP: ");
-
-        JButton up = new JButton("^");
-        JButton right = new JButton(">");
-        JButton down = new JButton("v");
-        JButton left = new JButton("<");
 
         fillGridBoxes();
 
@@ -43,18 +46,16 @@ public class GUI {
 
             switch (directionText) {
                 case "^":
-                    //                   Game.doMovement("n", Game.getPlayer());
-                    System.out.println("Up");
+                    Game.movement("n");
                     break;
                 case ">":
-                    //                   Game.doMovement("e", Game.getPlayer());
-                    System.out.println("Right");
+                    Game.movement("e");
                     break;
                 case "v":
-                    System.out.println("Down");
+                    Game.movement("s");
                     break;
                 case "<":
-                    System.out.println("Left");
+                    Game.movement("w");
                     break;
                 default:
                     break;
@@ -68,16 +69,23 @@ public class GUI {
 
 
         // setting positions and size of elements.
-        mainPanel.setBounds(10, 10, 770, 360);
-        playerHPLabel.setBounds(25, 400, 100, 25);
+        mainPanel.setBounds(10, 10, 770, 350);
+        playerHPLabel.setBounds(25, 380, 100, 25);
+        playerHP.setBounds(100, 380, 175, 25);
+        playerHPText.setBounds(150, 380, 100, 25);
+
         up.setBounds(525, 390, 50, 50);
         right.setBounds(580, 445, 50, 50);
         down.setBounds(525, 500, 50, 50);
         left.setBounds(470, 445, 50, 50);
-        scroll.setBounds(400, 15, 370, 350);
+
+        scroll.setBounds(350, 15, 420, 340);
         consoleOutput.setEditable( false);
 
-        int x = 20;
+        playerHP.setMaximum(Properties.playerHealth);
+        playerHP.setValue(Properties.playerHealth);
+
+        int x = 30;
 
         for (int i = 0; i < 15; i++) {
             boxes[0][i].setBounds(x, 20, 20, 20);
@@ -109,6 +117,8 @@ public class GUI {
         frame.add(scroll);
 
         frame.add(playerHPLabel);
+        frame.add(playerHPText);
+        frame.add(playerHP);
         frame.add(up);
         frame.add(right);
         frame.add(down);
@@ -119,8 +129,19 @@ public class GUI {
         frame.setResizable(false);
         frame.setLayout(null);// using no layout managers
         frame.setVisible(true);// making the frame visible
+    }
 
 
+
+    public static void updateBoard(){
+        boxes[Game.getPlayer().getX()][Game.getPlayer().getY()].setText("O");
+    }
+
+    public static void disableControls(){
+        up.setEnabled(false);
+        right.setEnabled(false);
+        down.setEnabled(false);
+        left.setEnabled(false);
     }
 
     public static void fillGridBoxes() {

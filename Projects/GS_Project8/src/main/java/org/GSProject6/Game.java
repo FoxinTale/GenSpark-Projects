@@ -1,9 +1,11 @@
 package org.GSProject6;
 
+import org.GSProject6.GUI.GUI;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
-    private static Human player = new Human(10, 10, Properties.playerHealth, 7, 7);
+    private static final Human player = new Human(10, 10, Properties.playerHealth, 7, 7);
 
     public static void initiateCombat() {
         boolean continueCombat = true;
@@ -19,32 +21,84 @@ public class Game {
         System.out.println(initiativeResult(initiative));
 
         while (continueCombat) {
+            GUI.playerHP.setValue(player.getHitPoints());
+
             if (initiative[0] > initiative[1]) {
                 System.out.println(enemy.attack(player));
-                System.out.println(player.attack(enemy));
+                if (!player.isDead()) {
+                    System.out.println(player.attack(enemy));
+                }
             } else {
                 System.out.println(player.attack(enemy));
-                System.out.println(enemy.attack(player));
+                if (!enemy.isDead()) { // If the enemy has not been killed by the player's attack.
+                    System.out.println(enemy.attack(player));
+                }
             }
-            if (player.isDead() || enemy.isDead()) {
-                if (enemy.isDead()) {
-                    System.out.println("The goblin has been slain.");
 
-                    System.out.println(); // Separator.
-                    if (!World.isBoardCleared()) {
-                        World.removeGoblin(enemy);
-                        World.printMainBoard();
-                    } else {
-                        System.out.println("You have cleared all the goblins from the map. Good job, exterminator.");
-                    }
-                }
-                if (player.isDead()) {
-                    System.out.println();
-                    System.out.println("You have been slain, and the game is now over.");
-                }
+            if (player.isDead()) {
+                System.out.println();
+                GUI.playerHP.setValue(0);
+                System.out.println("You have been slain.");
                 continueCombat = false;
             }
+
+            if (enemy.isDead()) {
+                if (!World.isBoardCleared()) {
+                    System.out.println("The goblin has been slain.");
+                    World.removeGoblin(enemy);
+                    World.setPositions();
+                } else {
+                    System.out.println("You have cleared all the goblins from the map. Good job, exterminator.");
+                }
+                System.out.println("aaaa");
+                continueCombat = false;
+            }
+
+
+            /*
+            GUI.playerHP.setValue(player.getHitPoints());
+
+            if(!player.isDead()){
+                if(!enemy.isDead()){
+                    if (initiative[0] > initiative[1]) {
+                        System.out.println(enemy.attack(player));
+                        System.out.println(player.attack(enemy));
+                    } else {
+                        System.out.println(player.attack(enemy));
+                        System.out.println(enemy.attack(player));
+                    }
+                } else {
+                    System.out.println("The goblin has been slain.");
+                    continueCombat = false;
+                }
+
+  //              if (player.isDead() || enemy.isDead()) {
+   //                 if (enemy.isDead()) {
+         //               System.out.println("The goblin has been slain.");
+
+          //              System.out.println(); // Separator.
+                        if (!World.isBoardCleared()) {
+                            World.removeGoblin(enemy);
+                            World.setPositions();
+                        } else {
+                            System.out.println("You have cleared all the goblins from the map. Good job, exterminator.");
+                            return;
+                        }
+  //                  }
+     //               continueCombat = false;
+   //             }
+            } else {
+                System.out.println();
+                System.out.println("You have been slain.");
+                return;
+            }
+   //         GUI.playerHPText.setText(player.getHitPoints() + " / " + Properties.playerHealth);
+
+
+             */
+
         }
+
     }
 
     public static String initiativeResult(int[] initiative) {
@@ -134,6 +188,7 @@ public class Game {
         return newPos < 15 && newPos > -1;
     }
 
+
     public static String handleInput(String s) {
         String specialChars = "~`!@#$%^&*()_-+=[]{}|\\:;\"'<,.>?/";
 
@@ -158,6 +213,20 @@ public class Game {
             }
         }
         return "Something went wrong.";
+    }
+
+    public static void movement(String direction) {
+        if (doMovement(direction, player)) {
+            if (!World.playerGoblinCheck()) {
+                World.moveGoblins();
+                World.setPositions();
+            } else {
+                System.out.println("Combat initiate!");
+                initiateCombat();
+            }
+        } else {
+            System.out.println("You cannot go any further.");
+        }
     }
 
     public static int rollFifteen() {

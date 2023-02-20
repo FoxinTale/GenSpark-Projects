@@ -4,8 +4,12 @@ package org.GSProject6;
 
 public class Properties {
     public static int goblinCount = 3; // Amount of goblins to spawn. Default is 3.
-    public static int playerHealth = 12; // Player's starting HP. Default is 12.
-    public static boolean goblinsMove = true; // Whether goblins move around between turns (free-roaming), or stand still.
+    public static int playerHealth = 24; // Player's starting HP. Default is 12.
+    public static boolean goblinsMove = false; // Whether goblins move around between turns (free-roaming), or stand still.
         // Note, this will move all the active goblins, and not just one or a few.
 
+
+    public static void optionsGUI(){
+
+    }
 }

@@ -1,6 +1,9 @@
 package org.GSProject6;
 
+import org.GSProject6.GUI.CustomOutputStream;
 import org.GSProject6.GUI.GUI;
+
+import java.io.PrintStream;
 
 /*
 This appears to be a text based humans versus goblins "game", and the word for word description is as follows:
@@ -51,19 +54,41 @@ To do for minimum functionality:
  */
 public class Main {
 
-
+    private static PrintStream standardOut; // This sets the outputs.
 
     public static void main(String[] args) {
+        // Casually re-directing all System.out calls to the GUI text window.
+  //      PrintStream printStream = new PrintStream(new CustomOutputStream(GUI.consoleOutput));
+  //      standardOut = System.out;
+  //      System.setOut(printStream);
+   //     System.setErr(printStream);
+
         GUI.launchGUI();
+        System.out.println(" Welcome to a rudimentary, text based version of D & D.");
+        System.out.println(" An x represents an open space, a G represents a Goblin, \n   and an O represents your character.");
+        System.out.println(" Use the arrow buttons below to move around.");
+        System.out.println();
+        System.out.println(" Combat is majorly automatic here.");
+
+        boolean runGame = true;
+
+
+        while(runGame){
+            if (Game.getPlayer().isDead() || World.isBoardCleared()) {
+                System.out.println(" The game is now over.");
+                GUI.disableControls();
+                runGame = false;
+            }
+        }
+
+
+
         /*
         boolean runGame = true;
-        System.out.println("Welcome to a rudimentary, text based version of D & D.");
-        System.out.println("An x represents an open space, a G represents a Goblin, and an O represents your character.");
-        System.out.println("Type n, s, e, or w (case insensitive) to move around.");
-        System.out.println();
+
         World.setupBoard();
 
-        Scanner sc = new Scanner(System.in);
+     //   Scanner sc = new Scanner(System.in);
 
         while (runGame) {
             String result = Game.handleInput(sc.next());
@@ -82,10 +107,7 @@ public class Main {
             } else {
                 System.out.println(result);
             }
-            if (Game.player.isDead() || World.isBoardCleared()) {
-                System.out.println("The game is now over.");
-                runGame = false;
-            }
+
         }
 
          */

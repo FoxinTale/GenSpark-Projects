@@ -65,7 +65,7 @@ public class World extends Game {
     }
 
     public static boolean isBoardCleared() {
-        return goblinList.size() <= 1;
+        return goblinList.size() < 1;
     }
 
     public static void placeGoblins() {
@@ -117,7 +117,6 @@ public class World extends Game {
             }
         }
 
-
         if (xClear && yClear) {
             return false;
         } else {
@@ -143,7 +142,7 @@ public class World extends Game {
     }
 
     public static void resetCharacter(int x, int y) {
-        mainBoard[x][y] = 'x';
+        GUI.boxes[x][y].setText("x");
     }
 
     public static void printMainBoard() {
