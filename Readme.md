@@ -1,4 +1,12 @@
-# Projects
+
+# A MonoRepo for Genspark's training.
+	I chose a monorepo "all in one" style because I found that, in the past monorepos are easier to manage and maintain. 
+
+## Spring-Core
+	The basics relating to Java Spring Core module.
+	
+
+## Projects
 Projects and assignments related to GenSpark's Java training course.
 
 ### Project One (DragonText)
