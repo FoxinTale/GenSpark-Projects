@@ -10,13 +10,16 @@
 ## Spring Boot
 	### Spring Boot Demo
 	The first program written in spring Boot. (by me, anyways). 
+	
+	### Simple Spring Boot Demo App
+	An application that shows utilising Spring Boot at a basic level, and utilising in-built lists instead of a database.
 
 
 ## Spring-Core
 	The basics relating to Java Spring Core module.
 	
 	### Example one (spring)
-		Shows the basics of using Spring's beans using an XML based configuration system.
+	Shows the basics of using Spring's beans using an XML based configuration system.
 		
 	### Example two:
 	Shows the basics of using Annotation and Config based Bean Config.
