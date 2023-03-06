@@ -33,7 +33,7 @@
 	
 
 ## Projects
-Projects and assignments related to GenSpark's Java training course.
+	Projects and assignments related to GenSpark's Java training course.
 
 ### Project One (DragonText)
 	This is a simple text based adventure project, the user is promted, then enters 1 or 2 and their fate is decided.
