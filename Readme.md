@@ -1,9 +1,35 @@
 
 # A MonoRepo for Genspark's training.
-	I chose a monorepo "all in one" style because I found that, in the past monorepos are easier to manage and maintain. 
+	I chose a monorepo "all in one" style because I found that, in the past monorepos are easier to manage and maintain in the long run. One place, no need to play "what repo was it again".
+
+## Examples
+	### Basics of OOP.
+	A simple program with comments pointing out the basics (and four pillars) of Object Oriented Programming. 
+
+
+## Spring Boot
+	### Spring Boot Demo
+	The first program written in spring Boot. (by me, anyways). 
+
 
 ## Spring-Core
 	The basics relating to Java Spring Core module.
+	
+	### Example one (spring)
+		Shows the basics of using Spring's beans using an XML based configuration system.
+		
+	### Example two:
+	Shows the basics of using Annotation and Config based Bean Config.
+	
+	### Example 3 (AOP)
+	Shows the basics of Spring's Aspect Oriented Programming.
+	
+	### Assignment 1
+	A basic assignment using spring, and XML based configuration.
+	
+	### Assignment 2
+	Similar to assignment 1, but using Annotation/Source based configuration. 
+	
 	
 
 ## Projects
