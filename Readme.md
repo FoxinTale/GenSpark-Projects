@@ -13,6 +13,9 @@
 	
 	### Simple Spring Boot Demo App
 	An application that shows utilising Spring Boot at a basic level, and utilising in-built lists instead of a database.
+	
+	### Simple Spring Boot 2
+	Same as the previous application, but it interfaces (or at least communicates) with a database back-end.
 
 
 ## Spring-Core
