@@ -5,7 +5,6 @@ public class Cat extends Animal{ // Inheritance.
         super(name, age);
     }
 
-    // Polymorphism.
     @Override
     public void speak() {
         System.out.println("I'm a cat! *meow*");

@@ -27,12 +27,13 @@ public class Animal {
     }
 
     // Polymorphism. Same named methods, but they do different things.
+    // Though, I suppose since its a constructor I'm not sure it really qualifies.
     public Animal(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
     public void speak(){
-        System.out.println("*Animal noises*");
+        System.out.println("*Generic animal noises*");
     }
 }
