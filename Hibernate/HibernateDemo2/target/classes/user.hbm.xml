@@ -1,0 +1,11 @@
+<hibernate-mapping>
+    <class name="org.example.Entity.User" table="users">
+        <id name="User_ID" column="User_ID">
+            <generator class="native"/>
+        </id>
+        <property name="User_Name"/>
+        <property name="User_Password"/>
+        <property name="User_Email"/>
+        <property name="User_IsAdmin"/>
+    </class>
+</hibernate-mapping>

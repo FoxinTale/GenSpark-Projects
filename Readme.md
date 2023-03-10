@@ -2,6 +2,13 @@
 # A MonoRepo for Genspark's training.
 	I chose a monorepo "all in one" style because I found that, in the past monorepos are easier to manage and maintain in the long run. One place, no need to play "what repo was it again".
 
+## Hibernate
+	Programs showing the basics of Java's Hibernate API. 
+	
+	### HibernateDemo and HibernateDemo2
+	Demos of Hibernate, interacting with a database and showing basic CRUD (Create, Read, Update, Delete) operations.
+	
+	
 ## Examples
 	### Basics of OOP.
 	A simple program with comments pointing out the basics (and four pillars) of Object Oriented Programming. 

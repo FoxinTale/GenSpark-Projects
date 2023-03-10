@@ -1,0 +1,14 @@
+<hibernate-mapping>
+    <class name="org.example.Entity.Character" table="characters">
+        <id name="Char_ID" column="Char_ID">
+            <generator class="native"/>
+        </id>
+        <property name="Char_User_ID"/>
+        <property name="Char_Name"/>
+        <property name="Char_ShortName"/>
+        <property name="Char_ShortDesc"/>
+        <property name="Char_Age"/>
+        <property name="Char_Gender"/>
+        <property name="Char_RaceName"/>
+    </class>
+</hibernate-mapping>
