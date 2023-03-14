@@ -1,0 +1,456 @@
+/* 
+Minimized version of the full W3.css, "compressed" to exclude items not utilized in the site. 
+There have also been heavy modifications, removals and additions to the original code to make it more fit the usage.
+*/
+
+
+
+/* Creating the classes to set fonts */
+
+.coming{ font-family: 'coming'; }
+.handlee { font-family: 'coming'; }
+
+
+/* General style rules for everywhere */
+a{ text-decoration: none; }
+
+ul li a{ text-decoration: none; }
+
+
+
+/* The boxes that everything is displayed in*/
+.box{
+    padding: 2.5%;
+    border-radius: 5px;
+    border: 1.5px solid black;
+}
+
+.box2{
+    margin: 2.5% 5% 2.5% 5%;
+    border: 1.5px solid black;
+    border-radius: 3px;
+}
+
+.box3{
+    padding: 2.5%;
+    border: 2px solid black;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.box4{
+    padding: 1rem;
+    margin-top: 2rem;
+    border: 1.5px solid black;
+    border-radius: 5px;
+}
+
+/* Colours! */
+.pale-purple{ background-color: #f1edf8; }
+
+.light-purple{ background-color: #c5b5e3; }
+
+.light-purple2{ background-color: #d3c7e9; }
+
+.light-purple3{ background-color: #dc96e8!important; }
+
+.light-purple4{ background-color: #b19cd9; }
+
+.light-gray{ background-color: #f1f1f1!important; }
+
+.purple{ background-color: #9c27b0!important; }
+
+.black{ background-color: #000!important; }
+
+
+/* */ 
+
+.display-text{
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.paragraph{
+    padding:0.75rem;
+}
+
+.mainpage{ transition: margin-left .4s; }
+
+.minipage{
+    margin-top: 2.5%;
+    border: none;
+    height: 70%;
+    margin-left: 7.5%;
+    width: 85%;
+    border-radius: 10px;
+}
+
+
+/* Lists*/
+
+
+.link-list{ margin-left: 2.5%; }
+
+.link-list li{
+    list-style-type: none;
+    padding-bottom: 0.5rem;
+}
+
+.link-list li a { font-family: 'malireg';}
+
+
+
+.w3-btn,
+.nav-button {
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    border: 1px solid black;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.w3-btn:hover, .clicky-button:hover { box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
+.clicky-button{
+    padding: 0.5rem;
+    margin-bottom:0.5rem;
+    width: 50%;
+}
+
+.clicky-button-two{
+    margin-bottom: 2rem;
+}
+
+.sidebar {
+    height: 100%;
+    width: 200px;
+    background-color: #fff;
+    position: fixed!important;
+    z-index: 1;
+    overflow: auto
+}
+
+.bar-block .w3-dropdown-hover, .w3-dropdown-click { width: 100%; }
+.bar-block .w3-dropdown-hover .w3-dropdown-content, .w3-dropdown-click .w3-dropdown-content { min-width: 100%; }
+
+.bar-block .w3-dropdown-hover .nav-button,
+.w3-dropdown-click{
+    text-align: left;
+    padding: 8px 16px
+}
+
+.w3-bar, .bar-item {
+    float: left;
+    width: auto;
+}
+
+.bar-block .bar-item {
+    width: 100%;
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+    border: none;
+    white-space: normal;
+    float: none;
+    outline: 0;
+}
+
+.w3-bar .nav-button .w3-tab{ white-space: normal; }
+.centre, .bar-item, .tab-item{ text-align: center; }
+
+.textinput{
+    display: block;
+    height: 1.35rem;
+    border-bottom: 1px solid black;
+    width: 50%;
+    font-family: 'coming';
+}
+
+.charselect{
+    width: 50%;
+    border: 0.5px solid black;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-family: 'coming';
+}
+
+.container label, .infotab label, .container2 label{
+    float: left;
+    width: auto;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-family: 'handlee';
+}
+
+.infotab label, .container2 label{ width: 15rem; }
+
+/* .w3-select option{ font-family: 'coming'; } */
+
+@media (min-width:993px) {
+    .w3-modal-content { width: 900px; }
+    
+    .hide-large { display: none!important; }
+    
+    .sidebar.collapse { display: block!important; }
+}
+
+
+@media (max-width:992px) {
+    .sidebar.collapse { display: none; }
+    
+    .mainpage {
+        margin-left: 0!important;
+        margin-right: 0!important;
+    }
+}
+
+.overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.hide { display: none!important; }
+
+.container:after,
+.container:before,
+.w3-panel:after,
+.w3-panel:before,
+.w3-bar:before,
+.w3-bar:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.show-block, .show { display: block!important; }
+
+.show-inline-block { display: inline-block!important; }
+
+.card, .card-2 { box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+
+.card-4{ box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19); }
+
+.animate-left {
+    position: relative;
+    animation: animateleft 0.4s;
+}
+
+.animate-opacity { animation: opac 0.8s }
+
+.nav-button:hover {
+    color: #000!important;
+    background-color: #ccc!important;
+}
+
+.xlarge { font-size: 24px!important }
+
+.container, container2,  .w3-panel { padding: 0.01em 16px; }
+
+.w3-panel {
+    margin-top: 16px;
+    margin-bottom: 16px
+}
+
+.shadow-816{  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); } /* So called because it's 8 by 16 pixels. */
+
+.textbox{
+    width: 50%;
+    resize: inherit;
+    font-family: 'coming';
+    margin-bottom: 1rem;
+}
+
+.w3-tab .tab-item{
+    padding: 8px 16px;
+    float: left;
+    width: auto;
+    border: none;
+    display: block;
+    outline: 0;
+    white-space: normal;
+    margin: 5px 0px 5px 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+.tablink{
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.w3-block {
+    display: block;
+    width: 100%
+}
+
+.w3-tab:before,
+.w3-tab:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.tab-item {
+    width: 100%;
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+    white-space: normal;
+    float: none;
+    outline: 0;
+    color: black;
+}
+
+.w3-tab{
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.w3-accordion{
+    display: block;
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid black;
+    margin-bottom: 2px;
+}
+
+.w3-info-title{
+    font-weight: 600;
+    font-family: 'telescope';
+}
+
+.databox{
+    padding: 2.5%;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    border: 1.5px solid black;
+    margin-bottom: 5px;
+}
+
+.textdisplay{
+    background-color: transparent;
+    border: none;
+    width: 75%;
+}
+
+.display-header{
+    background: lightgray;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid black;
+    text-align: center;
+    font-family: 'schoolbell';
+    font-weight: 300;
+}
+
+.title-header{
+    background: lightgray;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.nav-hr{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.w3-ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.w3-ul li{
+    padding: 5px;
+    font-family: 'coming';
+}
+
+.description{
+    text-align: center;
+    font-family: 'handlee';
+    font-size: 1.5em;
+}
+
+.w3-info-display{ font-weight: 600; }
+
+.w3-info-section span, .w3-data-span{ font-family: 'delius'; }
+
+.w3-img{ float: left; }
+
+.label{ width: auto; }
+
+.sep{ margin: 0% 10%; }
+
+.sep2{ margin: 0% 2.55%; }
+
+.data-entry{
+    margin-left: 0.75rem;
+    width: 15rem;
+    height: 3rem;
+}
+
+
+/* Small displays, Mobile devices. */
+@media (max-width:600px) {
+    .textbox{
+        margin-left: 1rem;   
+        width: 85%;
+    }
+    .textinput, .w3-select{
+        margin-left: 1rem;   
+        width: 85%;
+    }
+    .hide-small { display: none!important; }
+
+    .tab-item{ text-align: center; }
+    
+    .w3-dropdown-click.w3-mobile .w3-btn, .w3-dropdown-click.w3-mobile .nav-button { width: 100%; }
+    
+    .description{
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}
+
+/*  Specific items on specific pages  */
+#main{
+    background-image: url(../images/sunset.png);
+    background-size: cover;
+}
+
+
+#errorbox{
+    margin-left: 2.5rem;
+    margin-bottom: 1rem;
+    width: 34rem;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+    font-size: 125%;
+}
+

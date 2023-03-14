@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <title>The Character Journal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/@csstools/normalize.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/mainpage.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/w3-min.css">
+    <script type="text/javascript" src="scripts/ui.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <body class="mainpage">
+        <nav class="sidebar bar-block collapse animate-left card" style="z-index:3;width:250px;" id="sidenav">
+            <a class="bar-item nav-button hide-large large" href="javascript:void(0)" onclick="closenav()">Close <i class="fa fa-remove"></i></a>
+            <a class="bar-item nav-button" href="javascript:framerender('home.html')">Home</a>
+          <!--  
+            <div>
+                <a class="bar-item nav-button" onclick="dropdown('creation')" href="javascript:void(0)">Create Page <i class="fa fa-caret-down"></i></a>
+                <div id="creation" class="hide">
+                    <a class="bar-item nav-button" href="javascript:framerender('newability.html')">Ability / Power / Spell</a>
+                    <a class="bar-item nav-button" href="javascript:framerender('newchar.html')">Character</a>
+                    <a class="bar-item nav-button" href="javascript:framerender('newitem.html')">Item</a>
+                    <a class="bar-item nav-button" href="javascript:framerender('newweapon.html')">Weapon</a>
+                </div>
+            </div>
+            <a id="dnd_page" class="bar-item nav-button" href="javascript:framerender('dnd.html')" style="display:none">DnD Land</a>
+            <hr class="nav-hr">
+            <div>
+                <a class="bar-item nav-button" onclick="dropdown('viewContent')" href="javascript:void(0)">View...<i class="fa fa-caret-down"></i></a>
+                <div id="viewContent" class="hide">
+                    <a class="bar-item nav-button" href="javascript:framerender('ability.html')">Ability / Power / Spell</a>
+                    <a class="bar-item nav-button" href="javascript:framerender('chars.html')">Character</a>
+                    <a class="bar-item nav-button" href="javascript:framerender('items.html')">Item</a>
+                    <a class="bar-item nav-button" href="javascript:framerender('weapons.html')">Weapon</a>
+                </div>
+            </div>
+            <hr class="nav-hr">
+        -->
+            <a class="bar-item nav-button" href="javascript:framerender('resources.html')">Resources</a>
+            <a class="bar-item nav-button" href="javascript:framerender('credits.html')">Credits</a>
+            <a class="bar-item nav-button" href="javascript:framerender('aboutsite.html')">About Site</a>
+            <hr class="nav-hr">
+            <a class="bar-item nav-button" href="javascript:framerender('newprofile.html')">Create Journal</a>
+            <a class="bar-item nav-button" href="javascript:framerender('login.html')">Open Journal</a>
+   <!--         <a class="bar-item nav-button" href="javascript.framerender('logout.html')">Log Out</a> -->
+        </nav>
+        <div class="overlay hide-large animate-opacity" onclick="closenav()" style="cursor:pointer" id="overlay"></div>
+        <div class="mainpage" style="margin-left:250px;">
+            <i id="minimenu" class="fa fa-bars w3-button hide-large xlarge" onclick="opennav()"></i>
+            <h1>The Character Journal</h1>
+            <span id="userdisplay">User</span> <!-- this will only show up if the user is logged in, when I get the back-end working-->
+            <!--
+                The following element is how all pages are displayed. I am basically abusing a div as an iframe here with jQuery.
+                Why? I did not feel like repeating myself (this nav page) on every page so I settled on this way.
+                While I do not remember exactly *why* I did it this way, I think I had issues with the iframe not doing things I wanted it to.
+            -->
+            <div class="minipage" id="container"></div>
+            <iframe id="pageframe" name="frame" src="about:blank"></iframe>
+            <script type="text/javascript" src="scripts/main.js"></script>
+            <footer>Aubrey Jane- 2023</footer>
+        </div>
+    </body>
+    <noscript>Please turn scripts on to allow the page to render properly, and the navigation menu to work properly.</noscript> 
+</html> 

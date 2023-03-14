@@ -1,0 +1,17 @@
+ul li{
+    list-style-type: none;
+    padding: 5px 0px;
+    font-family:'coming';
+}
+
+@media screen and (max-width: 992px){
+    section{
+        margin-left: 2.5%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    ul li{
+        padding-right: 10px;
+    }
+}
