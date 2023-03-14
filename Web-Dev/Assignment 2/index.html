@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>New Journal</title>
+        <link rel="stylesheet" href="css/w3-min.css">
+    </head>
+    <body>
+        <main>
+            <form id="new_profile" class="box light-purple" action="">
+                <label id="firstlabel" for="user_name" class="login_label">Username</label>
+                <input type='text' class="textinput" id="user_name" name="username" value="">
+                <br>
+                <label for="pass">Password</label>               
+                <input type="password" class="textinput" id="pass" value="">
+                <br>
+                <label for='pass2'>Retype password</label>
+                <input type='password' class="textinput" id='pass2' name="password" value=''>
+                <br>
+                <label for='email'>Email</label>
+                <input type='text' class="textinput" id='email' value=''>
+                <br>
+                <label for='email2'>Confirm Email</label>
+                <input type='text' class="textinput" id='email2' name="email" value=''>
+                <br>
+                <label for="create">&nbsp;</label>
+                <input class="clicky-button" type="submit" id ="create" name="newprofile" value="Create Journal">
+                <br>
+                <label for="infobox">&nbsp;</label>
+                <input type="text" id="infobox" readonly value=''>
+                <br>
+                <label for="emailbox">&nbsp;</label>
+                <input type="text" id="emailbox" readonly value=''>
+
+            </form>
+            <section id="message">
+                <h3>Password must contain at least the following:</h3>
+                <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                <p id="number" class="invalid">A <b>number</b></p>
+                <p id="length" class="invalid">Minimum <b>6 characters</b></p>
+            </section>
+        </div>
+        <script type="text/javascript" src="scripts/verify.js"></script>
+            <noscript>Please enable scripts for password checking.</noscript>
+        </main>
+    </body>
+</html>

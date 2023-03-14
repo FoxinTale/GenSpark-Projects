@@ -2,6 +2,16 @@
 # A MonoRepo for Genspark's training.
 	I chose a monorepo "all in one" style because I found that, in the past monorepos are easier to manage and maintain in the long run. One place, no need to play "what repo was it again".
 
+## Web-Dev
+	Assignments from the "Web Development" section.
+	
+	### Assignmnet one
+		Simple demonstration of the basics of HTML and CSS.
+		
+	### Assignment 2
+		Simple demonstration of Javascriopt and RegEx to validate user input.
+	
+	
 ## Hibernate
 	Programs showing the basics of Java's Hibernate API. 
 	
