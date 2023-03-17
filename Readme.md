@@ -10,6 +10,9 @@
 		
 	### Assignment 2
 		Simple demonstration of Javascriopt and RegEx to validate user input.
+		
+	### Assignment 3:
+		Very basic demonstration of using both Bootstrap and angular together. It is very simple.
 	
 	
 ## Hibernate
