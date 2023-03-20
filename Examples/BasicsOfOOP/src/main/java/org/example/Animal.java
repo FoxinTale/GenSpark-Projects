@@ -1,5 +1,6 @@
 package org.example;
 
+// this is the "super class".
 public class Animal {
     private static String name;
     private static int age;
@@ -32,7 +33,7 @@ public class Animal {
         this.name = name;
         this.age = age;
     }
-
+// IntelliJ indicates "2 over-rides for this".
     public void speak(){
         System.out.println("*Generic animal noises*");
     }
