@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+:root{
+    background-image: url(../src/img/sunset.png);
+}
+
+
+/*
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+*/
+
+/* Global element style bits.  For some reason bootstrap wants to set the font as nearly un-readably tiny.*/
+p, section, span, label, input, ul li{
+    font-size: medium;
+}
+
+ul li{
+    text-decoration: none;
+    list-style-type: none;
+}
+
+/* The boxes that everything is displayed in*/
+.box{
+    padding: 2.5%;
+    border-radius: 5px;
+    border: 1.5px solid black;
+}
+
+.box2{
+    margin: 2.5% 5% 2.5% 5%;
+    border: 1.5px solid black;
+    border-radius: 3px;
+}
+
+.box3{
+    padding: 2.5%;
+    border: 2px solid black;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.box4{
+    padding: 1rem;
+    margin-top: 2rem;
+    border: 1.5px solid black;
+    border-radius: 5px;
+}
+
+/* Colours! */
+.pale-purple{
+    background-color: #f1edf8;
+}
+.light-purple{
+    background-color: #c5b5e3;
+}
+.light-purple2{
+    background-color: #d3c7e9;
+}
+.light-purple3{
+    background-color: #dc96e8!important;
+}
+.light-purple4{
+    background-color: #b19cd9;
+}
+
+.shadow-816{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} /* So called because it's 8 by 16 pixels. */

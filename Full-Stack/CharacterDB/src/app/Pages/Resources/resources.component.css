@@ -1,0 +1,20 @@
+.container{
+    padding:2rem;
+}
+
+section{
+    padding: 2.5rem 0px 0px 1rem;
+}
+
+.list-group, .list-group-item{
+    background-color: transparent;
+    border: none;
+}
+
+.list-group{
+    margin-top: 1rem;
+}
+
+.list-group-item{
+    margin-left: 2rem;
+}

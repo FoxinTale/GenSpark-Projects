@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "userName": "Aubrey",
+      "userPassword": "aaaaaaaaa",
+      "userEmail": "aaa@aol.net",
+      "userIsAdmin": false,
+      "id": 1
+    },
+    {
+      "userName": "FoxinTale",
+      "userPassword": "aaaaaaaaa",
+      "userEmail": "aaa@aol.net",
+      "userIsAdmin": false,
+      "id": 2
+    }
+  ],
+  "characters": [
+    {
+      "charFullName": "Azaria",
+      "charShortName": "N/A",
+      "charShortDesc": "A fluffy, humanoid dragon.",
+      "charAge": "Unknown.",
+      "charGender": "Female",
+      "charSpecies": "Fluffy dragon. Doesn't really have an official name.",
+      "id": 1
+    },
+    {
+      "charID": 2,
+      "charFullName": "Siles Catsuki",
+      "charShortName": "Siles, Silent",
+      "charShortDesc": "Siles is a leader of a kingdom called Snowpaw.",
+      "charAge": "500 years or so.",
+      "charGender": "Female",
+      "charSpecies": "Kitsune (Modified)",
+      "id": 2
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
