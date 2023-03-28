@@ -1,3 +1,3 @@
 echo "batch file output works"
-javac Jenkins\FirstDemo\HelloWorld.java
-java HelloWorld
+javac main.java
+java main
