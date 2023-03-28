@@ -1,0 +1,1 @@
+echo "batch file output works"
