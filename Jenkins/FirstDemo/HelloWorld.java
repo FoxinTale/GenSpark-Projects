@@ -1,9 +1,7 @@
-package genspark.assignments.section1;
+package org.example;
 
-import genspark.assignments.Assignment;
-
-public class HelloWorld implements Assignment {
-    public String solution(String hello){
-        return hello + " world!";
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello world!");
     }
 }
