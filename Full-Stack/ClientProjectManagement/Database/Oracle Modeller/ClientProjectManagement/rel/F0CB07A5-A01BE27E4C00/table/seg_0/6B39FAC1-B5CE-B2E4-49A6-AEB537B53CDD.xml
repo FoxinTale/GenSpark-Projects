@@ -1,0 +1,116 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6B39FAC1-B5CE-B2E4-49A6-AEB537B53CDD" name="tasks">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-20 17:16:33 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="taskID" id="14D88060-C8CC-BD6E-F4D4-ADA2FC735FEF">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-20 17:18:54 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="projectID" id="892408AB-867E-CBE8-6FF9-29BF1A715A4A">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-20 17:18:54 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="81E49C01-A3F5-1035-E171-AC0B10AC0460" referredColumn="4B792615-1BB6-B425-60E9-9A72627150AD"/>
+</associations>
+</Column>
+<Column name="taskName" id="ACD99F38-5F17-D002-97D2-347E641A7668">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-20 17:18:54 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="taskDesc" id="823B5860-7351-A5CF-1769-8354079DDFB5">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-20 17:18:54 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000</dataTypeSize>
+<ownDataTypeParameters>2000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="taskPriority" id="2FD5031C-90A3-F45B-DFFE-867782717C15">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-20 17:18:54 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="taskStatus" id="DC68DE8B-B62A-FBD1-9AAE-312F2B1F8AA6">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-20 17:18:54 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="taskAssignee" id="829C27A2-3E46-9809-1312-87DF39424D99">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-20 17:18:54 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ADBFAEAF-D29F-013B-FCCF-DA695C318EA9" name="tasks_PK">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-20 17:18:54 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="14D88060-C8CC-BD6E-F4D4-ADA2FC735FEF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EEBD3031-913B-3A80-E5B2-8FFE4867E27D" name="tasks_projects_FK">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-20 17:19:15 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="892408AB-867E-CBE8-6FF9-29BF1A715A4A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

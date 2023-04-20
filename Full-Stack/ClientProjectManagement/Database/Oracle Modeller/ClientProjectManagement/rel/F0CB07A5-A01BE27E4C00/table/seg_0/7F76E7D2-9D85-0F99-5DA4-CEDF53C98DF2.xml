@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7F76E7D2-9D85-0F99-5DA4-CEDF53C98DF2" name="clients">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-19 17:47:24 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="clientID" id="73ACD3B7-365A-A377-C083-769FA9B412EF">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-19 17:48:09 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="clientName" id="9BFE509E-58EC-A9B8-E2B1-34A05B2DC1F1">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-19 17:48:41 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="clientOrg" id="FA93E287-8E2C-9105-3C81-65B1EA840602">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-19 17:49:31 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="clientDesc" id="AC5F2B2F-250A-0A1C-45B4-FF27E7D3500B">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-19 17:49:31 UTC</createdTime>
+<commentInRDBMS><![CDATA[A description of who the client is.]]></commentInRDBMS>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="16D7DF61-877B-06C3-CEB0-4AC2AB9A16E6" name="clients_PK">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-19 17:48:09 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="73ACD3B7-365A-A377-C083-769FA9B412EF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

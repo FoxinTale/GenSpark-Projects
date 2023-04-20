@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="ClientProjectManagement" id="F0CB07A5-10BE-0637-80D1-A01BE27E4C00" mainViewID="A6E4BDA5-2187-138F-E006-7ACA8A580367">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-19 17:45:10 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>980FCE9E-D688-BDF0-C89A-C9FB2DCAED45</selectedRDBMSSite>
+</relationalModel>

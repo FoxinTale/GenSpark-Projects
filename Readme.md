@@ -1,6 +1,20 @@
 
 # A MonoRepo for Genspark's training.
 	I chose a monorepo "all in one" style because I found that, in the past monorepos are easier to manage and maintain in the long run. One place, no need to play "what repo was it again".
+	
+	
+## Full-Stack
+	Full stack development projects.
+	
+	### CharacterDB
+		A project designed to be used for storing information of tabletop (or general) game characters.
+		The friont end is built in Angular + Bootstrap, and the back-end was built in Java using Spring + Spring Boot.
+		
+		
+	### ClientProjectManagement
+		This is a project that is designed to help one manage their own projects. Funny as that would be useful for itself.
+		
+		
 
 ## Web-Dev
 	Assignments from the "Web Development" section.
