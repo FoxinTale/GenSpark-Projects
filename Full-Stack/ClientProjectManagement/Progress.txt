@@ -1,0 +1,32 @@
+A simple text file to keep track of my progress and tasks at hand for this. Which is funny, as this is the very thing this project is meant to handle.
+The main reason I am using a text file instead of something else is it's just me working on this. Using a visual board doesn't work well for an individual..this is from previous experience.
+Times listed are approximate to the nearest 15 minutes. As it is just me working on the project, I am the only one doing the completing, therefore there is not a "who completed it"
+
+	Item key:
+		[ ] Indicates the item is to be done. 
+		[x] Indicates the item is completed, and a date/time of completion is listed.
+		[-] Indicates the item has been started or is in progress. 
+
+
+
+Database:
+	[x] - Identify required data to develop a model. (Completed 4/1923 @
+	[x] - Develop database model in Oracle Data Modeller. (Completed 4/19/23 @2:30 Pm)
+	[x] - Create SQL file based on the data model. (completed 4/19/23 @3:45 Pm)
+	
+	
+	
+Spring Back-end:
+	[x] - Create Intellij Project. (Completed 4/18/23 @ 4 Pm)
+	[x] - Import dependencies into the project. (Completed 4/18/23 @ 4:15 Pm)
+	
+	
+	
+Front End:
+	[x] - Create Angular project. (Completed 4/19/23 @10 Am.)
+	
+	
+	
+	
+Misc:
+	[x] - Create Git repository (Completed 4/20/23 @1:45 Pm)
