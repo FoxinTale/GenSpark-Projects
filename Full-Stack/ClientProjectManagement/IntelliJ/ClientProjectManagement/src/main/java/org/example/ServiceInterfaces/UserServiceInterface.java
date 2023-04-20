@@ -14,5 +14,5 @@ public interface UserServiceInterface {
 
     UserEntity updateUser(UserEntity user);
 
-    UserEntity deleteUserByID(int userID);
+    String deleteUserByID(int userID);
 }
