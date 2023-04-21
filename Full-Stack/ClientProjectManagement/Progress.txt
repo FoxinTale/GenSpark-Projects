@@ -22,8 +22,7 @@ Spring Back-end:
 	[x] - Import dependencies into the project. (Completed 4/18/23 @ 4:15 Pm)
 	[x] - Impelement Back-end entities, DAO, and service interfaces. (Completed 4/20/23 @ 2:00 Pm)
 	[o] - Implement REST Controller.
-	[ ] - Implement services.
-	
+	[o] - Implement services. (Skeleton services completed 4/21/23 @ 10:45 AM)
 	
 	
 Front End:

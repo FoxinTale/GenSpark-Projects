@@ -13,6 +13,7 @@ CREATE TABLE users(
 	userPassword varchar(512),
 	userLevel integer
 );
+-- "UserLeveL", in this denotes the permissions / role of the user. 
 
 CREATE TABLE clients(
 	clientID int NOT NULL,
@@ -51,4 +52,6 @@ ALTER TABLE tasks ADD PRIMARY KEY(taskID),
 	ADD CONSTRAINT tasks_FK FOREIGN KEY (projectID) REFERENCES projects(projectID);
 
 -- Adding values.
+INSERT INTO users VALUES(1, 'Aubrey', 'password', 4);
 INSERT INTO clients(clientName, clientOrg)  VALUES('Aubrey' , ' N/A, self');
+
