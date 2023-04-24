@@ -13,12 +13,12 @@ CREATE TABLE users(
 	userPassword varchar(512),
 	userLevel integer
 );
--- "UserLeveL", in this denotes the permissions / role of the user. 
+-- "UserLevel", in this denotes the permissions / role of the user. 
 
 CREATE TABLE clients(
 	clientID int NOT NULL,
 	clientName varchar(255) NOT NULL,
-	clientDesc tinytext 
+	clientDesc text,
 	clientOrg varchar(512)
 );
 
@@ -28,6 +28,7 @@ CREATE TABLE projects(
 	projectName varchar(255),
 	projectDesc text,
 	projectStatus varchar(255),
+	projectNotes text,
 	projectContract blob
 );
 
@@ -38,8 +39,9 @@ CREATE TABLE tasks(
 	taskDesc varchar(2000),
 	taskPriority smallint,
 	taskStatus smallint,
+	taskNotes text,
 	taskAssignee varchar(255)
-};
+);
 
 -- Adding our constraints, such as primary and foreign keys.
 ALTER TABLE users ADD PRIMARY KEY(userID);
@@ -53,5 +55,7 @@ ALTER TABLE tasks ADD PRIMARY KEY(taskID),
 
 -- Adding values.
 INSERT INTO users VALUES(1, 'Aubrey', 'password', 4);
-INSERT INTO clients(clientName, clientOrg)  VALUES('Aubrey' , ' N/A, self');
+INSERT INTO clients(clientID, clientName, clientOrg)  VALUES(1, 'Aubrey' , ' N/A, self');
+
+
 

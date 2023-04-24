@@ -9,6 +9,7 @@ A finished item does not indicate that it will not be touched again, only that t
 		[x] Indicates the item is completed, and a date/time of completion is listed.
 		[o] Indicates the item has been started or is in progress.
 		[~] Indicates the item was cut. Reason(s) stated at the end of item.
+		An item with ** in front of it denotes it is on hold for another item to be completed.
 
 
 Database:
@@ -21,12 +22,29 @@ Spring Back-end:
 	[x] - Create Intellij Project. (Completed 4/18/23 @ 4 Pm)
 	[x] - Import dependencies into the project. (Completed 4/18/23 @ 4:15 Pm)
 	[x] - Impelement Back-end entities, DAO, and service interfaces. (Completed 4/20/23 @ 2:00 Pm)
-	[o] - Implement REST Controller.
-	[o] - Implement services. (Skeleton services completed 4/21/23 @ 10:45 AM)
+	** [o] - Implement REST Controller. (in progress, awaiting front end for endpoints)
+	[x] - Implement services. (Skeleton services completed 4/21/23 @ 10:45 AM)
+	[ ] - Implement some type of Spring security (mostly for password encryption).
+	[ ] - Test back-end via Postman.
 	
 	
 Front End:
 	[x] - Create Angular project. (Completed 4/19/23 @10 Am.)
+	[o] - Add a "home page".
+	[ ] - Add a Log-in page.
+	[ ] - Add a page where the projects can be viewed. (Make sure that it would only get client / user ID and not all projects.)
+	[ ] - Add a tasks page. (As in, once a project is clicked / selected all the tasts associated with it are displayed. Preferrably displayed by priority or similar. A task can also be added from here.)
+	[ ] - Create an API for assigning endpoints and CRUD operations.
+	[o] - Create models for each item.
+		[x] - Projects.
+		[ ] - Tasks
+		[ ] - Client
+		[ ] - User
+	[ ] - Test CRUD requests via a local Json "database".
+	
+	
+Full stack:
+	[ ] - Get the back end to process requests from the front end. (They should talk to each other).
 	
 	
 Misc:
