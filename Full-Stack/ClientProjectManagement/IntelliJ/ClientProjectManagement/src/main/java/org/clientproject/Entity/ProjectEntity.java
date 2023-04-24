@@ -16,15 +16,27 @@ public class ProjectEntity {
     private String projectDesc;
     private File projectContract;
     private String projectStatus;
+    private String projectNotes;
+
+    // Bare minimum constructor.
+    public ProjectEntity(int projectID, String projectName, int clientID, String projectDesc, File projectContract) {
+        this.projectID = projectID;
+        this.projectName = projectName;
+        this.clientID = clientID;
+        this.projectDesc = projectDesc;
+        this.projectContract = projectContract;
+    }
 
 
-    public ProjectEntity(int projectID, String projectName, int clientID, String projectDesc, File projectContract, String projectStatus) {
+    // Full constructor.
+    public ProjectEntity(int projectID, String projectName, int clientID, String projectDesc, File projectContract, String projectStatus, String projectNotes) {
         this.projectID = projectID;
         this.projectName = projectName;
         this.clientID = clientID;
         this.projectDesc = projectDesc;
         this.projectContract = projectContract;
         this.projectStatus = projectStatus;
+        this.projectNotes = projectNotes;
     }
 
 
@@ -76,4 +88,11 @@ public class ProjectEntity {
         this.projectStatus = projectStatus;
     }
 
+    public String getProjectNotes() {
+        return projectNotes;
+    }
+
+    public void setProjectNotes(String projectNotes) {
+        this.projectNotes = projectNotes;
+    }
 }

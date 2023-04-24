@@ -15,9 +15,21 @@ public class TaskEntity {
     private String taskAssignee;
     private int taskPriority;
     private int taskStatus;
+    private String taskNotes;
     private boolean deleted;
 
-    public TaskEntity(int taskID, int projectID, String taskName, String taskDesc, String taskAssignee, int taskPriority, int taskStatus) {
+    // Bare minimum constructor.
+    public TaskEntity(int taskID, int projectID, String taskName, String taskDesc) {
+        this.taskID = taskID;
+        this.projectID = projectID;
+        this.taskName = taskName;
+        this.taskDesc = taskDesc;
+        this.deleted = false;
+    }
+
+
+    // Full constructor
+    public TaskEntity(int taskID, int projectID, String taskName, String taskDesc, String taskAssignee, int taskPriority, int taskStatus, String taskNotes) {
         this.taskID = taskID;
         this.projectID = projectID;
         this.taskName = taskName;
@@ -25,6 +37,7 @@ public class TaskEntity {
         this.taskAssignee = taskAssignee;
         this.taskPriority = taskPriority;
         this.taskStatus = taskStatus;
+        this.taskNotes = taskNotes;
         this.deleted = false; // Default to false. This is for security reasons. We want to retain tasks for future reference to avoid "the blame game".
     }
 
@@ -85,6 +98,14 @@ public class TaskEntity {
         this.taskStatus = taskStatus;
     }
 
+    public String getTaskNotes() {
+        return taskNotes;
+    }
+
+    public void setTaskNotes(String taskNotes) {
+        this.taskNotes = taskNotes;
+    }
+
     public boolean isDeleted() {
         return deleted;
     }
@@ -92,4 +113,5 @@ public class TaskEntity {
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
     }
+
 }

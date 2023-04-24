@@ -35,11 +35,11 @@ Front End:
 	[ ] - Add a page where the projects can be viewed. (Make sure that it would only get client / user ID and not all projects.)
 	[ ] - Add a tasks page. (As in, once a project is clicked / selected all the tasts associated with it are displayed. Preferrably displayed by priority or similar. A task can also be added from here.)
 	[ ] - Create an API for assigning endpoints and CRUD operations.
-	[o] - Create models for each item.
+	[x] - Create models for each item. (Completed 4/24/23 @3 Pm)
 		[x] - Projects.
-		[ ] - Tasks
-		[ ] - Client
-		[ ] - User
+		[x] - Tasks
+		[x] - Client
+		[x] - User
 	[ ] - Test CRUD requests via a local Json "database".
 	
 	

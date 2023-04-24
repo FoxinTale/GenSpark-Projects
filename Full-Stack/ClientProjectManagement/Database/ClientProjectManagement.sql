@@ -40,7 +40,8 @@ CREATE TABLE tasks(
 	taskPriority smallint,
 	taskStatus smallint,
 	taskNotes text,
-	taskAssignee varchar(255)
+	taskAssignee varchar(255),
+	taskSoftDelete tinyint
 );
 
 -- Adding our constraints, such as primary and foreign keys.

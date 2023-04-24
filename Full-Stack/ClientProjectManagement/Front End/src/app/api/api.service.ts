@@ -16,5 +16,35 @@ export class ApiService {
   }
   constructor(private http : HttpClient) { }
 
+  private baseURL = "http://localhost:5000/";
+
+  postClient(data:any){
+    return this.http.post<any> (this.baseURL + "new-client", data, this.httpOptions).pipe(map((result:any)=> {
+      return result;
+    }))
+  }
+
+  updateClient(data: any) {
+    return this.http.put<any> (this.baseURL + "client" + data.characterID, data, this.httpOptions).pipe(map((result:any)=>
+    {
+      return result;
+    }))
+  }
+
+  getClient() {
+    return this.http.get<any>(this.baseURL + "", this.httpOptions).pipe(map((result:any)=> {
+      return result;
+    }))
+  }
+
+  getClientByID(clientID: number){
+    return this.http.get<any>(this.baseURL + "" + clientID, this.httpOptions).pipe(map((result:any)=> {
+      return result;
+    }))
+  }
+
+
+
+
   
 }
