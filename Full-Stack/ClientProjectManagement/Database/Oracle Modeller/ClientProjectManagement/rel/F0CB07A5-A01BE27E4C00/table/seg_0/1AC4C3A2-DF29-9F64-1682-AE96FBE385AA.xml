@@ -18,6 +18,19 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="clientID" id="AFF0CBD7-E41A-2958-C20C-6955D1465810">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-25 13:52:22 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7EEBBA52-612D-7A73-4696-66AAD292F36C" referredColumn="73ACD3B7-365A-A377-C083-769FA9B412EF"/>
+</associations>
+</Column>
 <Column name="userName" id="3E284952-A4A9-24E4-7E0D-064894712DD3">
 <createdBy>Aubrey</createdBy>
 <createdTime>2023-04-19 19:01:02 UTC</createdTime>
@@ -64,6 +77,16 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="FA465B46-E9B0-FBEE-82D5-21AE61425E1C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="60C91BEC-5C44-D1E5-ACFC-764B40E7EF0A" name="users_clients_FK">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-25 13:52:38 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AFF0CBD7-E41A-2958-C20C-6955D1465810"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

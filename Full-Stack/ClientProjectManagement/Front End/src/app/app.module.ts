@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Pages/Home/home.component';
 import { TaskComponent } from './Pages/Task/task.component';
+import { ProjectsComponent } from './Pages/Projects/projects.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -14,13 +16,15 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatTabsModule } from '@angular/material/tabs';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    TaskComponent
+    TaskComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDividerModule,
     MatTabsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

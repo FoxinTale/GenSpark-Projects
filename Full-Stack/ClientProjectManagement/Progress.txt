@@ -3,12 +3,13 @@ The main reason I am using a text file instead of something else is it's just me
 Times listed are approximate to the nearest 15 minutes. As it is just me working on the project, I am the only one doing the completing, therefore there is not a "who completed it"
 
 A finished item does not indicate that it will not be touched again, only that the bulk of the work is completed to a point of "functionality". Changes can and will be made.
+Deadline: May 9th, 2023.
 
 	Item key:
 		[ ] Indicates the item is to be done. 
 		[x] Indicates the item is completed, and a date/time of completion is listed.
 		[o] Indicates the item has been started or is in progress.
-		[~] Indicates the item was cut. Reason(s) stated at the end of item.
+		[~] Indicates the item was cut or not done. Reason(s) stated at the end of item.
 		An item with ** in front of it denotes it is on hold for another item to be completed.
 
 
@@ -16,6 +17,7 @@ Database:
 	[x] - Identify required data to develop a model. (Completed 4/19/23 @11:00 Am)
 	[x] - Develop database model in Oracle Data Modeller. (Completed 4/19/23 @2:30 Pm)
 	[x] - Create SQL file based on the data model. (completed 4/19/23 @3:45 Pm)
+	[x] - I'm pretty sure the user table has to be linked to something. Figure that out. (Completed 4/25/23 @ 10 Am)
 	
 	
 Spring Back-end:
@@ -30,11 +32,21 @@ Spring Back-end:
 	
 Front End:
 	[x] - Create Angular project. (Completed 4/19/23 @10 Am.)
-	[o] - Add a "home page".
+	[x] - Add a "home page". (Completed 4/26/23 @ 1:30 Pm)
+	[o] Design and implement the forms for the pages:
+		[ ] - Login form.
+		[x] - Tasks form. (Completed 4/26/23 @ 2:30 Pm)
+		[o] - Projects form. (File upload is all that is left) 
+		[ ] - Client form.
+		[ ] - User form. (User / account creation)
+		
+		NOTE: Dropdown menus content is displayed in a broken manner. It is visible, but only after finagling. This is not ideal for user experience.
+		[ ] - Fix dropdowns.
+		
 	[ ] - Add a Log-in page.
 	[ ] - Add a page where the projects can be viewed. (Make sure that it would only get client / user ID and not all projects.)
 	[ ] - Add a tasks page. (As in, once a project is clicked / selected all the tasts associated with it are displayed. Preferrably displayed by priority or similar. A task can also be added from here.)
-	[ ] - Create an API for assigning endpoints and CRUD operations.
+	[o] - Create an API for assigning endpoints and CRUD operations.
 	[x] - Create models for each item. (Completed 4/24/23 @3 Pm)
 		[x] - Projects.
 		[x] - Tasks
@@ -49,3 +61,23 @@ Full stack:
 	
 Misc:
 	[x] - Create Git repository (Completed 4/20/23 @1:45 Pm)
+	
+
+Other features:
+	[o] - Deadline option.
+		[x] - SQL back end
+		[ ] - Spring Boot handling
+		[ ] - Front end. (Probably a date-picker)
+		
+	[o] - Completion time option.
+		[x] - SQL back end.
+		[ ] - Spring boot handling
+		[ ] - Front end.
+		
+		
+---------------------------------------------------------------------------------------------------------------------------
+Developer notes:
+	Unsure of how I will link or assign users to a client. I may end up cutting the user all-together in favour of using the client.
+	We'll have to noodle on this for a little while. 
+	
+	

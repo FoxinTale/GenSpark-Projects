@@ -77,6 +77,17 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="taskNotes" id="C31F6DDE-DEC5-40A9-5398-9E7B74049B01">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-25 13:51:58 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT040</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="taskAssignee" id="829C27A2-3E46-9809-1312-87DF39424D99">
 <createdBy>Aubrey</createdBy>
 <createdTime>2023-04-20 17:18:54 UTC</createdTime>
@@ -87,6 +98,39 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>100</dataTypeSize>
 <ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="taskDeadline" id="D0FC483D-E368-7F88-51E6-B45C88E5B9C6">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-26 18:42:41 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="taskCompletion" id="D70DD8B8-3F44-7948-0EEB-4A22FBE2BA87">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-26 18:42:41 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="taskSoftDelete" id="282E3E97-3045-3DCE-76FA-CA6C2F9F65CD">
+<createdBy>Aubrey</createdBy>
+<createdTime>2023-04-25 13:58:07 UTC</createdTime>
+<ownerDesignName>ClientProjectManagement</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>

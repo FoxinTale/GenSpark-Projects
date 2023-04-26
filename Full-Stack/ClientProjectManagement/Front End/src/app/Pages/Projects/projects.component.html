@@ -7,3 +7,37 @@
         Project Notes is also a text box. This is for various notes on the project itself that wouldn't be covered by the description.
         Project contract is a file upload. It should only accept PDF files.
 -->
+
+<section class="panel panel-default">
+    <form [formGroup]="projectForm" id="projectForm" class="form-horizontal panel-body">
+      <div class="form-group">
+        <label for="projectName" class="control-label col-sm-2">Name of project: </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control font-med" required id="projectName" formControlName="projectName">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="projectName" class="control-label col-sm-2">Description of project: </label>
+        <div class="col-sm-10">
+            <textarea class="form-control font-med" id="projectDesc" formControlName="projectDesc"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="projectStatus" class="control-label col-sm-2">Project status: </label>
+        <mat-form-field class="col-sm-10">
+          <mat-select (selectionChange)="onChange($event)" >
+            <mat-option id="projectStatus" *ngFor="let status of statusesList" [value]="status">{{status}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <label for="projectNotes" class="control-label col-sm-2">Project notes: </label>
+        <div class="col-sm-10">
+            <textarea class="form-control font-med" id="projectNotes" formControlName="projectNotes"></textarea>
+        </div>
+      </div>
+    </form>
+  </section>

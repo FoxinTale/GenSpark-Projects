@@ -9,6 +9,7 @@ DROP TABLE IF EXISTS users CASCADE;
 
 CREATE TABLE users(
 	userID int NOT NULL,
+	clientID int NOT NULL,
 	userName varchar(255), 
 	userPassword varchar(512),
 	userLevel integer
@@ -29,7 +30,8 @@ CREATE TABLE projects(
 	projectDesc text,
 	projectStatus varchar(255),
 	projectNotes text,
-	projectContract blob
+	projectDeadline datetime,
+	projectContract mediumblob
 );
 
 CREATE TABLE tasks(
@@ -41,12 +43,17 @@ CREATE TABLE tasks(
 	taskStatus smallint,
 	taskNotes text,
 	taskAssignee varchar(255),
-	taskSoftDelete tinyint
+	taskDeadline datetime,
+	taskCompletion datetime,
+	taskSoftDelete bit
 );
 
 -- Adding our constraints, such as primary and foreign keys.
-ALTER TABLE users ADD PRIMARY KEY(userID);
+	
 ALTER TABLE clients ADD PRIMARY KEY(clientID);
+
+ALTER TABLE users ADD PRIMARY KEY(userID),
+	ADD CONSTRAINT client_FK FOREIGN KEY (clientID) REFERENCES clients(clientID);
 
 ALTER TABLE projects ADD PRIMARY KEY(projectID),
 	ADD CONSTRAINT project_FK FOREIGN KEY (clientID) REFERENCES clients(clientID);

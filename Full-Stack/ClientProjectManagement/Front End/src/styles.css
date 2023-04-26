@@ -1,4 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 :root{
-    background-image: url(../src/img/winter.png);
+    background-color: cadetblue
+}
+
+
+body{
+    background-color: #daddf6;
+}
+
+p, section, span, label, input, ul li{
+    font-size: medium;
+}
+
+
+.box2{
+    margin: 2.5% 5% 2.5% 5%;
+    border: 1.5px solid black;
+    border-radius: 5px;
+}
+
+.bgc-1{
+    background-color: #fdfaf6;
 }
